@@ -1,0 +1,44 @@
+@import "~tabler-react/dist/Tabler.css";
+
+.btn-outline-cyan {
+ color: #17a2b8;
+ background-color: transparent;
+ background-image: none;
+ border-color: #17a2b8;
+}
+
+.btn-outline-cyan:hover {
+ color: #fff;
+ background-color: #17a2b8;
+ border-color: #17a2b8;
+}
+
+.btn-outline-cyan:focus,
+.btn-outline-cyan.focus {
+ box-shadow: 0 0 0 2px rgba(70, 127, 207, 0.5);
+}
+
+.btn-outline-cyan.disabled,
+.btn-outline-cyan:disabled {
+ color: #17a2b8;
+ background-color: transparent;
+}
+
+.btn-outline-cyan:not(:disabled):not(.disabled):active,
+.btn-outline-cyan:not(:disabled):not(.disabled).active,
+.show > .btn-outline-cyan.dropdown-toggle {
+ color: #fff;
+ background-color: #17a2b8;
+ border-color: #17a2b8;
+}
+
+.btn-outline-cyan:not(:disabled):not(.disabled):active:focus,
+.btn-outline-cyan:not(:disabled):not(.disabled).active:focus,
+.show > .btn-outline-cyan.dropdown-toggle:focus {
+ box-shadow: 0 0 0 2px rgba(70, 127, 207, 0.5);
+}
+
+.card-login {
+ max-width: 550px;
+ margin: 100px auto 0;
+}
