@@ -34,6 +34,10 @@ export default function AuthProvider({ children }) {
      user
     });
 
+    axios.defaults.headers.common[
+     "Authorization"
+    ] = `Bearer ${user.accessToken}`;
+
     saveUserDataToLocalStorage(user);
    })
    .catch(error => {
@@ -46,11 +50,15 @@ export default function AuthProvider({ children }) {
 
  function logout() {
   axios.post(`${BASE_URL}/api/auth/logout`).then(response => {
-   dispatch({
-    type: LOGOUT
-   });
+   if (response.data.loggedOut) {
+    dispatch({
+     type: LOGOUT
+    });
 
-   removeUserDataFromLocalStorage();
+    axios.defaults.headers.common["Authorization"] = null;
+
+    removeUserDataFromLocalStorage();
+   }
   });
  }
 

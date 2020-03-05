@@ -38,7 +38,26 @@
  box-shadow: 0 0 0 2px rgba(70, 127, 207, 0.5);
 }
 
+.nav-tabs .nav-link.active {
+ color: #17a2b8;
+ border-color: #17a2b8;
+}
+
+.nav-tabs .nav-link.active:hover {
+ opacity: 0.8;
+ color: #17a2b8;
+ border-color: #17a2b8;
+}
+
 .card-login {
  max-width: 550px;
  margin: 100px auto 0;
+}
+
+.modal {
+ background-color: rgba(0, 0, 0, 0.1);
+}
+
+.modal-close i {
+ cursor: pointer;
 }

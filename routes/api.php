@@ -17,3 +17,12 @@ Route::group(['namespace' => 'Auth', 'prefix' => 'auth'], function() {
     Route::post('/login', 'LoginController@login');
     Route::post('/logout', 'LoginController@logout');
 });
+
+Route::group(['middleware' => 'auth:api', 'namespace' => 'Api'], function() {
+  Route::prefix('form-lists')->group(function() {
+    Route::get('/', 'FormListController@index');
+    Route::post('/create', 'FormListController@create');
+    Route::get('/{form}', 'FormListController@show');
+    Route::delete('{formId}/delete', 'FormListController@destroy');
+  });
+});

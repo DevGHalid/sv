@@ -38,10 +38,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function formLists()
+    {
+        return $this->hasMany(FormList::class);
+    }
+
     public function updateApiToken()
     {
-        $user->api_token = Str::random(60);
-        return $user->save();
+        $this->api_token = Str::random(60);
+        return $this->save();
     }
 
     public function resetApiToken()

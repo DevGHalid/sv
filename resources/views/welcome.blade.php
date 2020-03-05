@@ -12,6 +12,8 @@
 
         <div id="root"></div>
 
+        <div id="modal-root"></div>
+
         <script>
             var BASE_URL = "{{ url('/') }}";
         </script>
