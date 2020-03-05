@@ -60025,11 +60025,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _contexts_AuthContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../contexts/AuthContext */ "./resources/js/contexts/AuthContext.js");
-/* harmony import */ var _providers_FormListsProvider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../providers/FormListsProvider */ "./resources/js/providers/FormListsProvider.js");
-/* harmony import */ var _pages_Login__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../pages/Login */ "./resources/js/pages/Login.js");
-/* harmony import */ var _pages_Home__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../pages/Home */ "./resources/js/pages/Home.js");
-/* harmony import */ var _pages_Users__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../pages/Users */ "./resources/js/pages/Users.js");
-/* harmony import */ var _pages_FormLists__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../pages/FormLists */ "./resources/js/pages/FormLists.js");
+/* harmony import */ var _pages_Login__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../pages/Login */ "./resources/js/pages/Login.js");
+/* harmony import */ var _pages_Home__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../pages/Home */ "./resources/js/pages/Home.js");
+/* harmony import */ var _pages_Users__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../pages/Users */ "./resources/js/pages/Users.js");
+/* harmony import */ var _providers_FormListsProvider__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../providers/FormListsProvider */ "./resources/js/providers/FormListsProvider.js");
+/* harmony import */ var _pages_formLists_FormLists__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../pages/formLists/FormLists */ "./resources/js/pages/formLists/FormLists.js");
+/* harmony import */ var _providers_FormListProvider__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../providers/FormListProvider */ "./resources/js/providers/FormListProvider.js");
+/* harmony import */ var _pages_formList_FormList__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../pages/formList/FormList */ "./resources/js/pages/formList/FormList.js");
+
+
 
 
 
@@ -60049,19 +60053,27 @@ function App() {
       history.push("/login");
     }
   }, [auth.loggedIn]);
+  console.log(1);
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     path: "/",
-    component: _pages_Home__WEBPACK_IMPORTED_MODULE_5__["default"],
+    component: _pages_Home__WEBPACK_IMPORTED_MODULE_4__["default"],
     exact: true
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     path: "/users",
-    component: _pages_Users__WEBPACK_IMPORTED_MODULE_6__["default"]
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_providers_FormListsProvider__WEBPACK_IMPORTED_MODULE_3__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    component: _pages_Users__WEBPACK_IMPORTED_MODULE_5__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     path: "/form-lists",
-    component: _pages_FormLists__WEBPACK_IMPORTED_MODULE_7__["default"]
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    render: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_providers_FormListsProvider__WEBPACK_IMPORTED_MODULE_6__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pages_formLists_FormLists__WEBPACK_IMPORTED_MODULE_7__["default"], null));
+    }
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    path: "/form-lists",
+    render: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_providers_FormListProvider__WEBPACK_IMPORTED_MODULE_8__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pages_formLists_FormLists__WEBPACK_IMPORTED_MODULE_7__["default"], null));
+    }
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     path: "/login",
-    component: _pages_Login__WEBPACK_IMPORTED_MODULE_4__["default"]
+    component: _pages_Login__WEBPACK_IMPORTED_MODULE_3__["default"]
   }));
 }
 
@@ -60389,200 +60401,6 @@ function Navigation() {
 
 /***/ }),
 
-/***/ "./resources/js/pages/FormListRemove.js":
-/*!**********************************************!*\
-  !*** ./resources/js/pages/FormListRemove.js ***!
-  \**********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return FormListRemove; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _layouts_Modal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../layouts/Modal */ "./resources/js/layouts/Modal.js");
-
-
-function FormListRemove(_ref) {
-  var title = _ref.title,
-      children = _ref.children,
-      onClose = _ref.onClose;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_layouts_Modal__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    title: "\u0412\u044B \u0430\u0431\u0441\u043E\u043B\u044E\u0442\u043D\u043E \u0443\u0432\u0435\u0440\u0435\u043D\u044B?",
-    onClose: onClose
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "\u042D\u0442\u043E \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0435 \u043D\u0435 \u043C\u043E\u0436\u0435\u0442 \u0431\u044B\u0442\u044C \u043E\u0442\u043C\u0435\u043D\u0435\u043D\u043E. \u042D\u0442\u043E \u043F\u0440\u0438\u0432\u0435\u0434\u0435\u0442 \u043A \u043D\u0435\u043E\u0431\u0440\u0430\u0442\u0438\u043C\u043E\u043C\u0443 \u0443\u0434\u0430\u043B\u0435\u043D\u0438\u044E"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "mt-2"
-  }, "\u041F\u043E\u0436\u0430\u043B\u0443\u0439\u0441\u0442\u0430, \u0432\u0432\u0435\u0434\u0438\u0442\u0435", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("code", {
-    className: "text-danger"
-  }, title), " \u0434\u043B\u044F \u043F\u043E\u0434\u0442\u0432\u0435\u0440\u0436\u0434\u0435\u043D\u0438\u044F."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "form-group mt-4"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    className: "form-control"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "mt-4"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: "btn btn-cyan btn-block"
-  }, "\u042F \u043F\u043E\u043D\u0438\u043C\u0430\u044E \u043F\u043E\u0441\u043B\u0435\u0434\u0441\u0442\u0432\u0438\u044F, \u0443\u0434\u0430\u043B\u0438\u0442\u0435 \u044D\u0442\u043E\u0443 \u0444\u043E\u0440\u043C\u0443"))));
-}
-
-/***/ }),
-
-/***/ "./resources/js/pages/FormLists.js":
-/*!*****************************************!*\
-  !*** ./resources/js/pages/FormLists.js ***!
-  \*****************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return FormLists; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _layouts_Master__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../layouts/Master */ "./resources/js/layouts/Master.js");
-/* harmony import */ var _contexts_FormListsContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../contexts/FormListsContext */ "./resources/js/contexts/FormListsContext.js");
-/* harmony import */ var _FormListsAdd__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./FormListsAdd */ "./resources/js/pages/FormListsAdd.js");
-/* harmony import */ var _FormListRemove__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./FormListRemove */ "./resources/js/pages/FormListRemove.js");
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
-
-function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-
-
-
-
-
-function FormLists() {
-  var _useContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_FormListsContext__WEBPACK_IMPORTED_MODULE_2__["default"]),
-      fetchAllFormListsFromApi = _useContext.fetchAllFormListsFromApi;
-
-  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-    return fetchAllFormListsFromApi();
-  }, []);
-
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
-      _useState2 = _slicedToArray(_useState, 2),
-      isClose = _useState2[0],
-      setIsClose = _useState2[1];
-
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_layouts_Master__WEBPACK_IMPORTED_MODULE_1__["default"], null, isClose && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FormListRemove__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    onClose: function onClose() {
-      return setClosed(false);
-    }
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "container"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "card"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "card-header justify-content-between"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
-    className: "card-title"
-  }, "\u0421\u043F\u0438\u0441\u0430\u043A \u0444\u043E\u0440\u043C\u044B"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "form-btn-action"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: "btn btn-sm btn-outline-cyan"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    className: "fe fe-plus mr-1"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0424\u043E\u0440\u043C\u0443")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "card-body"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(FormListsTable, null)))));
-}
-
-function FormListsTable() {
-  var _useContext2 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_FormListsContext__WEBPACK_IMPORTED_MODULE_2__["default"]),
-      formLists = _useContext2.formLists;
-
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
-    className: "table table-light table-hover"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
-    scope: "col"
-  }, "\u0421\u043E\u0437\u0434\u0430\u0442\u0435\u043B\u044C"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
-    scope: "col"
-  }, "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u044F"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
-    scope: "col"
-  }, "\u041A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u0430 \u043B\u0438\u0441\u0442\u043E\u0432"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
-    scope: "col"
-  }, "\u0414\u0430\u0442\u0430"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, formLists.allFormLists.map(function (formList) {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
-      key: formList.id
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "nav-link p-0 leading-none"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-      className: "avatar"
-    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-      className: "ml-2 d-none d-lg-block"
-    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-      className: "text-default"
-    }, formList.user.name))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, formList.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "0"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, formList.created_at), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "d-flex justify-content-end"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "form-action form-action-edit mr-3"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-      className: "btn btn-sm btn-outline-primary btn-pill"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fe fe-edit mr-1"
-    }), "\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "form-action form-action-remove"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-      className: "btn btn-sm btn-outline-danger btn-pill"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fe fe-trash-2 mr-1"
-    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "\u0423\u0434\u0430\u043B\u0438\u0442\u044C"))))));
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FormListsAdd__WEBPACK_IMPORTED_MODULE_3__["default"], null)));
-}
-
-/***/ }),
-
-/***/ "./resources/js/pages/FormListsAdd.js":
-/*!********************************************!*\
-  !*** ./resources/js/pages/FormListsAdd.js ***!
-  \********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return FormListAdd; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-
-function FormListAdd() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "nav-link p-0 leading-none"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "avatar"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "ml-2 d-none d-lg-block"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "text-default"
-  }, "Halid"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: "text",
-    placeholder: "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u044F",
-    className: "form-control form-control-sm w-75"
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "0"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C\u0441\u044F \u0434\u0430\u0442\u0430 \u043F\u043E\u0441\u043B\u0435 \u0434\u043E\u0431\u0430\u0432\u043B\u0435\u043D\u0438\u044F")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "d-flex justify-content-end"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "form-action form-action-edit mr-3"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: "btn btn-sm btn-outline-cyan btn-pill"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    className: "fe fe-save mr-1"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "form-action form-action-remove"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: "btn btn-sm btn-outline-cyan btn-pill"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    className: "fe fe-x mr-1"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "\u041E\u0442\u043C\u0435\u043D\u0438\u0442\u044C"))))));
-}
-
-/***/ }),
-
 /***/ "./resources/js/pages/Home.js":
 /*!************************************!*\
   !*** ./resources/js/pages/Home.js ***!
@@ -60725,6 +60543,326 @@ function Users() {
 
 /***/ }),
 
+/***/ "./resources/js/pages/formList/FormList.js":
+/*!*************************************************!*\
+  !*** ./resources/js/pages/formList/FormList.js ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return FormList; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+function FormList() {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "form list");
+}
+
+/***/ }),
+
+/***/ "./resources/js/pages/formLists/FormListRemove.js":
+/*!********************************************************!*\
+  !*** ./resources/js/pages/formLists/FormListRemove.js ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return FormListRemove; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _layouts_Modal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../layouts/Modal */ "./resources/js/layouts/Modal.js");
+/* harmony import */ var _contexts_FormListsContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../contexts/FormListsContext */ "./resources/js/contexts/FormListsContext.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+function FormListRemove(_ref) {
+  var formListId = _ref.formListId,
+      formListTitle = _ref.formListTitle,
+      children = _ref.children,
+      onClose = _ref.onClose;
+
+  var _useContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_FormListsContext__WEBPACK_IMPORTED_MODULE_2__["default"]),
+      removeFormList = _useContext.removeFormList;
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(""),
+      _useState2 = _slicedToArray(_useState, 2),
+      confirmingTitle = _useState2[0],
+      setConfirmingTitle = _useState2[1];
+
+  var isConfirmTitle = confirmingTitle === formListTitle;
+
+  var confirmRemoveFormList = function confirmRemoveFormList() {
+    if (!isConfirmTitle) return;
+    removeFormList(formListId).then(function (response) {
+      return onClose();
+    })["catch"](function (error) {
+      return error;
+    });
+  };
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_layouts_Modal__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    title: "\u0412\u044B \u0430\u0431\u0441\u043E\u043B\u044E\u0442\u043D\u043E \u0443\u0432\u0435\u0440\u0435\u043D\u044B?",
+    onClose: onClose
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "\u042D\u0442\u043E \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0435 \u043D\u0435 \u043C\u043E\u0436\u0435\u0442 \u0431\u044B\u0442\u044C \u043E\u0442\u043C\u0435\u043D\u0435\u043D\u043E. \u042D\u0442\u043E \u043F\u0440\u0438\u0432\u0435\u0434\u0435\u0442 \u043A \u043D\u0435\u043E\u0431\u0440\u0430\u0442\u0438\u043C\u043E\u043C\u0443 \u0443\u0434\u0430\u043B\u0435\u043D\u0438\u044E"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "mt-2"
+  }, "\u041F\u043E\u0436\u0430\u043B\u0443\u0439\u0441\u0442\u0430, \u0432\u0432\u0435\u0434\u0438\u0442\u0435 ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("code", {
+    className: "text-dark"
+  }, formListTitle), " \u0434\u043B\u044F \u043F\u043E\u0434\u0442\u0432\u0435\u0440\u0436\u0434\u0435\u043D\u0438\u044F."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "form-group mt-4"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    className: "form-control",
+    onChange: function onChange(_ref2) {
+      var target = _ref2.target;
+      return setConfirmingTitle(target.value);
+    }
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "mt-4"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "btn btn-danger btn-block",
+    disabled: !isConfirmTitle,
+    onClick: confirmRemoveFormList
+  }, "\u042F \u043F\u043E\u043D\u0438\u043C\u0430\u044E \u043F\u043E\u0441\u043B\u0435\u0434\u0441\u0442\u0432\u0438\u044F, \u0443\u0434\u0430\u043B\u0438\u0442\u0435 \u044D\u0442\u043E\u0443 \u0444\u043E\u0440\u043C\u0443"))));
+}
+
+/***/ }),
+
+/***/ "./resources/js/pages/formLists/FormLists.js":
+/*!***************************************************!*\
+  !*** ./resources/js/pages/formLists/FormLists.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return FormLists; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _layouts_Master__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../layouts/Master */ "./resources/js/layouts/Master.js");
+/* harmony import */ var _contexts_FormListsContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../contexts/FormListsContext */ "./resources/js/contexts/FormListsContext.js");
+/* harmony import */ var _FormListsAdd__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./FormListsAdd */ "./resources/js/pages/formLists/FormListsAdd.js");
+/* harmony import */ var _FormListRemove__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./FormListRemove */ "./resources/js/pages/formLists/FormListRemove.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+function FormLists() {
+  var history = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["useHistory"])();
+
+  var _useContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_FormListsContext__WEBPACK_IMPORTED_MODULE_3__["default"]),
+      formLists = _useContext.formLists,
+      fetchAllFormListsFromApi = _useContext.fetchAllFormListsFromApi;
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    fetchAllFormListsFromApi();
+  }, []);
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
+      _useState2 = _slicedToArray(_useState, 2),
+      removingFormList = _useState2[0],
+      setRemovingFirmList = _useState2[1];
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+      _useState4 = _slicedToArray(_useState3, 2),
+      isAdding = _useState4[0],
+      setIsAdding = _useState4[1];
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_layouts_Master__WEBPACK_IMPORTED_MODULE_2__["default"], null, removingFormList && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FormListRemove__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    formListId: removingFormList.id,
+    formListTitle: removingFormList.title,
+    onClose: function onClose() {
+      return setRemovingFirmList(null);
+    }
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "container"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card-header justify-content-between"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+    className: "card-title"
+  }, "\u0421\u043F\u0438\u0441\u0430\u043A \u0444\u043E\u0440\u043C\u044B"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "form-btn-action"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "btn btn-sm btn-outline-cyan",
+    disabled: isAdding,
+    onClick: function onClick() {
+      return setIsAdding(true);
+    }
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fe fe-plus mr-1"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0424\u043E\u0440\u043C\u0443")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card-body"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+    className: "table table-light table-hover"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+    scope: "col"
+  }, "\u0421\u043E\u0437\u0434\u0430\u0442\u0435\u043B\u044C"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+    scope: "col"
+  }, "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u044F"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+    scope: "col"
+  }, "\u041A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u0430 \u043B\u0438\u0441\u0442\u043E\u0432"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+    scope: "col"
+  }, "\u0414\u0430\u0442\u0430"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, formLists.allFormLists.map(function (formList) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
+      key: formList.id
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "nav-link p-0 leading-none"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "avatar"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "ml-2 d-none d-lg-block"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "text-default"
+    }, formList.user.name))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, formList.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "0"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, formList.created_at), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "d-flex justify-content-end"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "form-action form-action-edit mr-3"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      className: "btn btn-sm btn-primary-only-text btn-pill",
+      onClick: function onClick() {
+        return history.push("/form-lists", {
+          formListId: formList.id
+        });
+      }
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fe fe-edit mr-1"
+    }), "\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "form-action form-action-remove"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      className: "btn btn-sm btn-danger-only-text btn-pill",
+      onClick: function onClick() {
+        return setRemovingFirmList(formList);
+      }
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fe fe-trash-2 mr-1"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "\u0423\u0434\u0430\u043B\u0438\u0442\u044C"))))));
+  }), isAdding && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FormListsAdd__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    onCancel: function onCancel() {
+      return setIsAdding(false);
+    }
+  })))))));
+}
+
+/***/ }),
+
+/***/ "./resources/js/pages/formLists/FormListsAdd.js":
+/*!******************************************************!*\
+  !*** ./resources/js/pages/formLists/FormListsAdd.js ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return FormListAdd; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _contexts_FormListsContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../contexts/FormListsContext */ "./resources/js/contexts/FormListsContext.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+function FormListAdd(_ref) {
+  var onCancel = _ref.onCancel;
+
+  var _useContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_FormListsContext__WEBPACK_IMPORTED_MODULE_2__["default"]),
+      addFormList = _useContext.addFormList;
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(""),
+      _useState2 = _slicedToArray(_useState, 2),
+      title = _useState2[0],
+      setTitle = _useState2[1];
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
+      _useState4 = _slicedToArray(_useState3, 2),
+      error = _useState4[0],
+      setError = _useState4[1];
+
+  var handleSaveTitle = function handleSaveTitle() {
+    if (!title.trim()) {
+      return setError("Добавиться дата после добавления");
+    }
+
+    addFormList(title).then(function (response) {
+      return onCancel();
+    });
+  };
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "nav-link p-0 leading-none"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "avatar"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "ml-2 d-none d-lg-block"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "text-default"
+  }, "Halid"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "text",
+    placeholder: "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u044F",
+    className: "form-control form-control-sm w-75",
+    onChange: function onChange(_ref2) {
+      var target = _ref2.target;
+      return setTitle(target.value);
+    }
+  }), error && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", {
+    className: "text-danger"
+  }, "\u0417\u0430\u043F\u043E\u043B\u043D\u0438\u0442\u0435 \u043F\u043E\u043B\u0435")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "0"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C\u0441\u044F \u0434\u0430\u0442\u0430 \u043F\u043E\u0441\u043B\u0435 \u0434\u043E\u0431\u0430\u0432\u043B\u0435\u043D\u0438\u044F\"")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "d-flex justify-content-end"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "form-action form-action-edit mr-3"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "btn btn-sm btn-outline-cyan btn-pill",
+    onClick: handleSaveTitle
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fe fe-save mr-1"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "form-action form-action-remove",
+    onClick: onCancel
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "btn btn-sm btn-outline-cyan btn-pill"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fe fe-x mr-1"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "\u041E\u0442\u043C\u0435\u043D\u0438\u0442\u044C"))))));
+}
+FormListAdd.propTypes = {
+  onCancel: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func.isRequired
+};
+
+/***/ }),
+
 /***/ "./resources/js/providers/AuthProvider.js":
 /*!************************************************!*\
   !*** ./resources/js/providers/AuthProvider.js ***!
@@ -60808,6 +60946,28 @@ function AuthProvider(_ref) {
 
 /***/ }),
 
+/***/ "./resources/js/providers/FormListProvider.js":
+/*!****************************************************!*\
+  !*** ./resources/js/providers/FormListProvider.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return FormListProvider; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+!(function webpackMissingModule() { var e = new Error("Cannot find module '../contexts/FormListContext'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+
+
+function FormListProvider(_ref) {
+  var children = _ref.children;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(!(function webpackMissingModule() { var e = new Error("Cannot find module '../contexts/FormListContext'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), null, children);
+}
+
+/***/ }),
+
 /***/ "./resources/js/providers/FormListsProvider.js":
 /*!*****************************************************!*\
   !*** ./resources/js/providers/FormListsProvider.js ***!
@@ -60859,10 +61019,42 @@ function FormListsProvider(_ref) {
     });
   }
 
+  function addFormList(title) {
+    return new Promise(function (resolve, reject) {
+      axios.post("".concat(BASE_URL, "/api/form-lists/create"), {
+        title: title
+      }).then(function (response) {
+        dispatch({
+          type: _reducers_formListsReducer__WEBPACK_IMPORTED_MODULE_2__["ADD_FORM_LIST"],
+          formList: response.data
+        });
+        resolve(response);
+      })["catch"](function (error) {
+        return reject(error);
+      });
+    });
+  }
+
+  function removeFormList(formListId) {
+    return new Promise(function (resolve, reject) {
+      axios["delete"]("".concat(BASE_URL, "/api/form-lists/").concat(formListId, "/delete")).then(function (response) {
+        if (response.data.deleted) {
+          dispatch({
+            type: _reducers_formListsReducer__WEBPACK_IMPORTED_MODULE_2__["REMOVE_FORM_LIST"],
+            formListId: formListId
+          });
+          resolve(response);
+        }
+      })["catch"](function (error) {});
+    });
+  }
+
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_contexts_FormListsContext__WEBPACK_IMPORTED_MODULE_1__["default"].Provider, {
     value: {
       formLists: formLists,
-      fetchAllFormListsFromApi: fetchAllFormListsFromApi
+      fetchAllFormListsFromApi: fetchAllFormListsFromApi,
+      addFormList: addFormList,
+      removeFormList: removeFormList
     }
   }, children);
 }
@@ -60936,7 +61128,7 @@ function authReducer(state, action) {
 /*!***************************************************!*\
   !*** ./resources/js/reducers/formListsReducer.js ***!
   \***************************************************/
-/*! exports provided: FORM_LISTS_REQUEST, FORM_LISTS_SUCCESS, FORM_LISTS_FAIL, default */
+/*! exports provided: FORM_LISTS_REQUEST, FORM_LISTS_SUCCESS, FORM_LISTS_FAIL, ADD_FORM_LIST, REMOVE_FORM_LIST, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -60944,6 +61136,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FORM_LISTS_REQUEST", function() { return FORM_LISTS_REQUEST; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FORM_LISTS_SUCCESS", function() { return FORM_LISTS_SUCCESS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FORM_LISTS_FAIL", function() { return FORM_LISTS_FAIL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ADD_FORM_LIST", function() { return ADD_FORM_LIST; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_FORM_LIST", function() { return REMOVE_FORM_LIST; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return formListsReducer; });
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -60954,6 +61148,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var FORM_LISTS_REQUEST = "FORM_LISTS_REQUEST";
 var FORM_LISTS_SUCCESS = "FORM_LISTS_SUCCESS";
 var FORM_LISTS_FAIL = "FORM_LISTS_FAIL";
+var ADD_FORM_LIST = "ADD_FORM_LIST";
+var REMOVE_FORM_LIST = "REMOVE_FORM_LIST";
 function formListsReducer(state, action) {
   switch (action.type) {
     case FORM_LISTS_REQUEST:
@@ -60973,6 +61169,18 @@ function formListsReducer(state, action) {
       return _objectSpread({}, state, {
         loading: false,
         error: action.error
+      });
+
+    case ADD_FORM_LIST:
+      return _objectSpread({}, state, {
+        allFormLists: state.allFormLists.concat(action.formList)
+      });
+
+    case REMOVE_FORM_LIST:
+      return _objectSpread({}, state, {
+        allFormLists: state.allFormLists.filter(function (formList) {
+          return formList.id !== action.formListId;
+        })
       });
   }
 }

@@ -18501,6 +18501,10 @@ svg {
 .fe-zoom-out:before {
   content: "\EA06";
 }
+.container {
+  max-width: 1400px;
+}
+
 .btn-outline-cyan {
   color: #17a2b8;
   background-color: transparent;
@@ -18537,6 +18541,44 @@ svg {
 .btn-outline-cyan:not(:disabled):not(.disabled).active:focus,
 .show > .btn-outline-cyan.dropdown-toggle:focus {
   box-shadow: 0 0 0 2px rgba(70, 127, 207, 0.5);
+}
+
+.btn:not(:disabled):not(.disabled) {
+  cursor: pointer;
+}
+
+.btn-primary-only-text {
+  box-shadow: unset !important;
+  font-weight: 400;
+  color: #467fcf;
+  background-color: transparent;
+}
+
+.btn-primary-only-text:hover {
+  color: #295a9f;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.btn-primary-only-text:active {
+  opacity: 0.7;
+}
+
+.btn-danger-only-text {
+  box-shadow: unset !important;
+  font-weight: 400;
+  color: #cd201f;
+  background-color: transparent;
+}
+
+.btn-danger-only-text:hover {
+  color: #961818;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.btn-danger-only-text:active {
+  opacity: 0.7;
 }
 
 .nav-tabs .nav-link.active {
