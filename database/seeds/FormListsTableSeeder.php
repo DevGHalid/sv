@@ -12,8 +12,12 @@ class FormListsTableSeeder extends Seeder
      */
     public function run()
     {
-      User::first()->formLists()->create([
+      $form_list = User::first()->formLists()->create([
         'title' => 'form 1'
+      ]);
+      
+      $sheet = $form_list->sheets()->create([
+        'user_id' => $form_list->id
       ]);
     }
 }

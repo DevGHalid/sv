@@ -38,5 +38,7 @@ export default function formListsReducer(state, action) {
      return formList.id !== action.formListId;
     })
    };
+   default:
+     return state;
  }
 }

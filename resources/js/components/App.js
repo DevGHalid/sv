@@ -8,6 +8,8 @@ import FormListsProvider from "../providers/FormListsProvider";
 import FormLists from "../pages/formLists/FormLists";
 import FormListProvider from "../providers/FormListProvider";
 import FormList from "../pages/formList/FormList";
+import FormListElementsProvider from "../providers/FormListElementsProvider";
+import SheetsProvider from "../providers/SheetsProvider";
 
 export default function App() {
  const history = useHistory();
@@ -18,8 +20,6 @@ export default function App() {
    history.push("/login");
   }
  }, [auth.loggedIn]);
-
- console.log(1);
 
  return (
   <Switch>
@@ -34,13 +34,18 @@ export default function App() {
       </FormListsProvider>
      );
     }}
+    exact
    />
    <Route
-    path="/form-lists"
+    path="/form-lists/:id/edit"
     render={() => {
      return (
       <FormListProvider>
-       <FormLists />
+       <FormListElementsProvider>
+        <SheetsProvider>
+         <FormList />
+        </SheetsProvider>
+       </FormListElementsProvider>
       </FormListProvider>
      );
     }}

@@ -69,9 +69,7 @@ export default function FormLists() {
             <div className="form-action form-action-edit mr-3">
              <button
               className="btn btn-sm btn-primary-only-text btn-pill"
-              onClick={() =>
-               history.push("/form-lists", { formListId: formList.id })
-              }
+              onClick={() => history.push(`/form-lists/${formList.id}/edit`)}
              >
               <i className="fe fe-edit mr-1"></i>
               Редактировать

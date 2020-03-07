@@ -22,7 +22,15 @@ Route::group(['middleware' => 'auth:api', 'namespace' => 'Api'], function() {
   Route::prefix('form-lists')->group(function() {
     Route::get('/', 'FormListController@index');
     Route::post('/create', 'FormListController@create');
-    Route::get('/{form}', 'FormListController@show');
-    Route::delete('{formId}/delete', 'FormListController@destroy');
+    Route::get('/{form_list}/edit', 'FormListController@edit');
+    Route::delete('{form_list_id}/delete', 'FormListController@destroy');
+  });
+
+  Route::prefix('sheets')->group(function() {
+    Route::get('/', 'SheetController@index');
+  });
+
+  Route::prefix('form-list-elements')->group(function() {
+    Route::get('/', 'FormListElementController@index');
   });
 });

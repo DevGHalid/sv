@@ -15,4 +15,9 @@ class FormList extends Model
     {
       return $this->belongsTo(User::class);
     }
+
+    public function sheets()
+    {
+      return $this->hasMany(Sheet::class);
+    }
 }

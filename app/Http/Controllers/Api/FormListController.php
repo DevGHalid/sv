@@ -43,7 +43,18 @@ class FormListController extends Controller
   }
 
   /**
+   * @param \App\Models\FormList $form_list
+   * @return \Illuminate\Support\Facades\Response
+   */
+
+  public function edit(FormList $form_list)
+  {
+    return Response::json($form_list);
+  }
+
+  /**
    * @param int $form_list_id
+   * @return \Illuminate\Support\Facades\Response
    */
   public function destroy($form_list_id)
   {
