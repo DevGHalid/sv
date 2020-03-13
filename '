@@ -31,8 +31,7 @@ function FormListContent({ formListItem }) {
   const {
     sheets,
     fetchSheetsByFormListIdFromApi,
-    addElementToSheet,
-    updateIndexesForElements
+    addElementToSheet
   } = useContext(SheetsContext);
 
   useEffect(() => {
@@ -54,13 +53,21 @@ function FormListContent({ formListItem }) {
     // add element to sheets
     if (addedIndex !== null && removedIndex === null) {
       const element = Object.assign(payload, { index: addedIndex });
-
       addElementToSheet(element, sheetId);
-    }
 
-    // swap places 
-    if (removedIndex !== null && addedIndex !== null) {
-      updateIndexesForElements({ oldIndex: removedIndex, newIndex: addedIndex}, sheetId); 
+      const { removedIndex, addedIndex, payload } = dragResult;
+      if (removedIndex === null && addedIndex === null) return arr;
+
+      const result = [...arr];
+      let itemToAdd = payload;
+
+      if (removedIndex !== null) {
+       itemToAdd = result.splice(removedIndex, 1)[0];
+      }
+
+      if (addedIndex !== null) {
+       result.splice(addedIndex, 0, itemToAdd);
+      }
     }
   };
 
@@ -98,13 +105,13 @@ function FormListContent({ formListItem }) {
                 <div className="sheet-content">
                   <Container
                     groupName="elements"
-                    getChildPayload={i => sheet.answers[i]}
+                    getChildPayload={i => i}
                     onDrop={handleDrop(sheet.id)}
                   >
                     {sheet.answers.map(answer => (
                       <Draggable
                         className="sheet-item action"
-                        key={answer.index}
+                        key={answer.id}
                       >
                         <div className="sheet-item-text">
                           <span className="mr-2">

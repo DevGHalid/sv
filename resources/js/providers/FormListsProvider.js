@@ -9,8 +9,8 @@ import formListsReducer, {
 } from "../reducers/formListsReducer";
 
 export default function FormListsProvider({ children }) {
- const formListContext = useContext(FormListsContext);
- const [formLists, dispatch] = useReducer(formListsReducer, formListContext);
+ const initialState = useContext(FormListsContext);
+ const [formLists, dispatch] = useReducer(formListsReducer, initialState);
 
  function fetchAllFormListsFromApi() {
   dispatch({
@@ -59,7 +59,7 @@ export default function FormListsProvider({ children }) {
        formListId
       });
 
-      resolve(response)
+      resolve(response);
      }
     })
     .catch(error => {});

@@ -60218,47 +60218,6 @@ var SheetsContext = react__WEBPACK_IMPORTED_MODULE_0___default.a.createContext({
 
 /***/ }),
 
-/***/ "./resources/js/helpers/applyDrag.js":
-/*!*******************************************!*\
-  !*** ./resources/js/helpers/applyDrag.js ***!
-  \*******************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return applyDrag; });
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
-
-function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
-
-function applyDrag(arr, dragResult) {
-  var removedIndex = dragResult.removedIndex,
-      addedIndex = dragResult.addedIndex,
-      payload = dragResult.payload;
-  if (removedIndex === null && addedIndex === null) return arr;
-
-  var result = _toConsumableArray(arr);
-
-  var itemToAdd = payload;
-
-  if (removedIndex !== null) {
-    itemToAdd = result.splice(removedIndex, 1)[0];
-  }
-
-  if (addedIndex !== null) {
-    result.splice(addedIndex, 0, itemToAdd);
-  }
-
-  return result;
-}
-
-/***/ }),
-
 /***/ "./resources/js/helpers/authHelper.js":
 /*!********************************************!*\
   !*** ./resources/js/helpers/authHelper.js ***!
@@ -60693,9 +60652,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _layouts_Master__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../layouts/Master */ "./resources/js/layouts/Master.js");
 /* harmony import */ var _contexts_FormListContext__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../contexts/FormListContext */ "./resources/js/contexts/FormListContext.js");
 /* harmony import */ var _contexts_FormListElementsContext__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../contexts/FormListElementsContext */ "./resources/js/contexts/FormListElementsContext.js");
-/* harmony import */ var _helpers_applyDrag__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../helpers/applyDrag */ "./resources/js/helpers/applyDrag.js");
-/* harmony import */ var _contexts_SheetsContext__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../contexts/SheetsContext */ "./resources/js/contexts/SheetsContext.js");
-
+/* harmony import */ var _contexts_SheetsContext__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../contexts/SheetsContext */ "./resources/js/contexts/SheetsContext.js");
 
 
 
@@ -60711,122 +60668,118 @@ function FormList() {
       formList = _useContext.formList,
       fetchFormListFromApi = _useContext.fetchFormListFromApi;
 
-  var _useContext2 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_FormListElementsContext__WEBPACK_IMPORTED_MODULE_5__["default"]),
-      formListElements = _useContext2.formListElements,
-      fetchAllFormListElementsFromApi = _useContext2.fetchAllFormListElementsFromApi,
-      setFormListElements = _useContext2.setFormListElements;
-
+  var formListItem = formList.formListItem;
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-    fetchFormListFromApi(params.id).then(function (response) {
-      return fetchAllFormListElementsFromApi();
-    })["catch"](function (error) {
-      return history.goBack();
-    });
+    fetchFormListFromApi(params.id);
   }, []);
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_layouts_Master__WEBPACK_IMPORTED_MODULE_3__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "container"
-  }, formList.formListItem ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(FormListContent, {
-    formListItem: formList.formListItem,
-    formListElements: formListElements.allFormListElements,
-    setFormListElements: setFormListElements
-  }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "loader m-auto"
-  })));
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_layouts_Master__WEBPACK_IMPORTED_MODULE_3__["default"], null, !formListItem ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Loader, null) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(FormListContent, {
+    formListItem: formListItem
+  }));
 }
 
 function FormListContent(_ref) {
-  var formListItem = _ref.formListItem,
-      formListElements = _ref.formListElements,
-      setFormListElements = _ref.setFormListElements;
+  var formListItem = _ref.formListItem;
 
-  var _useContext3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_SheetsContext__WEBPACK_IMPORTED_MODULE_7__["default"]),
-      sheets = _useContext3.sheets,
-      fetchSheetsByFormListIdFromApi = _useContext3.fetchSheetsByFormListIdFromApi;
+  var _useContext2 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_SheetsContext__WEBPACK_IMPORTED_MODULE_6__["default"]),
+      sheets = _useContext2.sheets,
+      fetchSheetsByFormListIdFromApi = _useContext2.fetchSheetsByFormListIdFromApi,
+      addElementToSheet = _useContext2.addElementToSheet,
+      updateIndexesForElements = _useContext2.updateIndexesForElements;
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     fetchSheetsByFormListIdFromApi(formListItem.id);
   }, []);
+
+  var _useContext3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_FormListElementsContext__WEBPACK_IMPORTED_MODULE_5__["default"]),
+      formListElements = _useContext3.formListElements,
+      fetchAllFormListElementsFromApi = _useContext3.fetchAllFormListElementsFromApi;
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    fetchAllFormListElementsFromApi();
+  }, []);
+
+  var handleDrop = function handleDrop(sheetId) {
+    return function (item) {
+      var removedIndex = item.removedIndex,
+          addedIndex = item.addedIndex,
+          payload = item.payload;
+      if (removedIndex === null && addedIndex === null) return; // add element to sheets
+
+      if (addedIndex !== null && removedIndex === null) {
+        var element = Object.assign(payload, {
+          index: addedIndex
+        });
+        addElementToSheet(element, sheetId);
+      } // swap places 
+
+
+      if (removedIndex !== null && addedIndex !== null) {
+        updateIndexesForElements({
+          oldIndex: removedIndex,
+          newIndex: addedIndex
+        }, sheetId);
+      }
+    };
+  };
+
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "row"
+    className: "sheets"
+  }, sheets.loading ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Loader, null) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "sheets-content"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "col-lg-12"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-    className: "nav nav-tabs mb-4 m-0"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-    className: "nav-list-item"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
-    to: "/form-lists/".concat(formListItem.id, "/edit/constructor"),
-    className: "nav-link-item"
-  }, "\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-    className: "nav-list-item"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
-    to: "/form-lists/".concat(formListItem.id, "/edit/preview"),
-    className: "nav-link-item"
-  }, "\u041F\u0440\u0435\u0434\u043F\u0440\u043E\u0441\u043C\u043E\u0442\u0440")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "col-lg-3"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "list-group-transparent question-items"
+    className: "sheet"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "sheet-content"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_smooth_dnd__WEBPACK_IMPORTED_MODULE_2__["Container"], {
-    groupName: "form-list",
+    groupName: "elements",
     behaviour: "copy",
     getChildPayload: function getChildPayload(i) {
-      return formListElements[i];
-    },
-    onDrop: function onDrop(e) {
-      setFormListElements(Object(_helpers_applyDrag__WEBPACK_IMPORTED_MODULE_6__["default"])(formListElements, e));
+      return formListElements.allFormListElements[i];
     }
-  }, formListElements.map(function (formListElement) {
+  }, formListElements.allFormListElements.map(function (element) {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_smooth_dnd__WEBPACK_IMPORTED_MODULE_2__["Draggable"], {
-      className: "d-flex align-items-center question-item",
-      key: formListElement.id
+      className: "sheet-item action",
+      key: element.id
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "sheet-item-text"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-      className: "mr-3 icon"
+      className: "mr-2"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: formListElement.icon
-    })), formListElement.title);
-  }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "col-lg-9"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "card"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "card-body"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_smooth_dnd__WEBPACK_IMPORTED_MODULE_2__["Container"], {
-    className: "dimmer active",
-    groupName: "form-list",
-    getChildPayload: function getChildPayload(i) {
-      return array[i];
-    },
-    onDrop: function onDrop(e) {
-      return setArray(Object(_helpers_applyDrag__WEBPACK_IMPORTED_MODULE_6__["default"])(array, e));
-    }
-  }, sheets.loading ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "loader m-auto"
-  }) : sheets.allSheets.map(function (sheet, idx) {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_smooth_dnd__WEBPACK_IMPORTED_MODULE_2__["Draggable"], {
-      key: idx,
-      className: "list-group-item"
+      className: element.icon
+    })), element.title));
+  })))), sheets.allSheets.map(function (sheet, idx) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "sheet",
+      key: sheet.id
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "question d-flex justify-content-between"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "question-content d-flex"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "question-icon mr-3"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: sheet.icon
-    })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "question-title"
-    }, sheet.title)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "question-actions d-flex"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "question-action mr-3"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fe fe-settings"
-    })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "question-action"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fe fe-trash-2"
-    })))));
-  }))))));
+      className: "sheet-content"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_smooth_dnd__WEBPACK_IMPORTED_MODULE_2__["Container"], {
+      groupName: "elements",
+      getChildPayload: function getChildPayload(i) {
+        return sheet.answers[i];
+      },
+      onDrop: handleDrop(sheet.id)
+    }, sheet.answers.map(function (answer) {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_smooth_dnd__WEBPACK_IMPORTED_MODULE_2__["Draggable"], {
+        className: "sheet-item action",
+        key: answer.index
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sheet-item-text"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "mr-2"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: answer.icon
+      })), answer.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fe fe-x"
+      })));
+    }))));
+  })));
+}
+
+function Loader() {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "loader m-auto mt-lg-9"
+  });
 }
 
 /***/ }),
@@ -61310,9 +61263,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function FormListProvider(_ref) {
   var children = _ref.children;
-  var formListContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_FormListContext__WEBPACK_IMPORTED_MODULE_1__["default"]);
+  var initialState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_FormListContext__WEBPACK_IMPORTED_MODULE_1__["default"]);
 
-  var _useReducer = Object(react__WEBPACK_IMPORTED_MODULE_0__["useReducer"])(_reducers_formListReducer__WEBPACK_IMPORTED_MODULE_2__["default"], formListContext),
+  var _useReducer = Object(react__WEBPACK_IMPORTED_MODULE_0__["useReducer"])(_reducers_formListReducer__WEBPACK_IMPORTED_MODULE_2__["default"], initialState),
       _useReducer2 = _slicedToArray(_useReducer, 2),
       formList = _useReducer2[0],
       dispatch = _useReducer2[1];
@@ -61330,7 +61283,8 @@ function FormListProvider(_ref) {
         resolve(response);
       })["catch"](function (error) {
         dispatch({
-          type: _reducers_formListReducer__WEBPACK_IMPORTED_MODULE_2__["FORM_LIST_FAIL"]
+          type: _reducers_formListReducer__WEBPACK_IMPORTED_MODULE_2__["FORM_LIST_FAIL"],
+          error: error
         });
         reject(error);
       });
@@ -61374,9 +61328,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function FormListsProvider(_ref) {
   var children = _ref.children;
-  var formListContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_FormListsContext__WEBPACK_IMPORTED_MODULE_1__["default"]);
+  var initialState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_FormListsContext__WEBPACK_IMPORTED_MODULE_1__["default"]);
 
-  var _useReducer = Object(react__WEBPACK_IMPORTED_MODULE_0__["useReducer"])(_reducers_formListsReducer__WEBPACK_IMPORTED_MODULE_2__["default"], formListContext),
+  var _useReducer = Object(react__WEBPACK_IMPORTED_MODULE_0__["useReducer"])(_reducers_formListsReducer__WEBPACK_IMPORTED_MODULE_2__["default"], initialState),
       _useReducer2 = _slicedToArray(_useReducer, 2),
       formLists = _useReducer2[0],
       dispatch = _useReducer2[1];
@@ -61474,20 +61428,16 @@ function SheetsProvider(_ref) {
       sheets = _useReducer2[0],
       dispatch = _useReducer2[1];
 
-  function setSheets(sheets) {
-    dispatch({
-      type: SHEETS_SUCCESS,
-      allSheets: sheets
-    });
-  }
-
   function fetchSheetsByFormListIdFromApi(formListId) {
     return new Promise(function (resolve, reject) {
       dispatch({
         type: _reducers_sheetsReducer__WEBPACK_IMPORTED_MODULE_2__["SHEETS_REQUEST"]
       });
       axios.get("".concat(BASE_URL, "/api/sheets?form_list_id=").concat(formListId)).then(function (response) {
-        setSheets(response.data);
+        dispatch({
+          type: _reducers_sheetsReducer__WEBPACK_IMPORTED_MODULE_2__["SHEETS_SUCCESS"],
+          allSheets: response.data
+        });
         resolve(response);
       })["catch"](function (error) {
         dispatch({
@@ -61498,10 +61448,43 @@ function SheetsProvider(_ref) {
     });
   }
 
+  function addElementToSheet(element, sheetId) {
+    axios.post("".concat(BASE_URL, "/api/sheets/").concat(sheetId, "/elements/add"), {
+      element: element
+    }).then(function (response) {
+      var data = response.data;
+      var sheet = sheets.allSheets.find(function (sheet) {
+        return sheet.id === sheetId;
+      }); // replace the data
+
+      sheet.answers.splice(data.index, 1, data);
+    });
+    dispatch({
+      type: _reducers_sheetsReducer__WEBPACK_IMPORTED_MODULE_2__["ADD_ELEMENT_TO_SHEET"],
+      payload: {
+        sheetId: sheetId,
+        index: element.index,
+        element: element
+      }
+    });
+  }
+
+  function updateIndexesForElements(idxs, sheetId) {
+    axios.post("".concat(BASE_URL, "/api/sheets/").concat(sheetId, "/elements/update-index"), idxs).then(function (response) {});
+    dispatch({
+      type: _reducers_sheetsReducer__WEBPACK_IMPORTED_MODULE_2__["UPDATE_INDEXES_FOR_ELEMENTS"],
+      payload: Object.assign(idxs, {
+        sheetId: sheetId
+      })
+    });
+  }
+
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_contexts_SheetsContext__WEBPACK_IMPORTED_MODULE_1__["default"].Provider, {
     value: {
       sheets: sheets,
-      fetchSheetsByFormListIdFromApi: fetchSheetsByFormListIdFromApi
+      fetchSheetsByFormListIdFromApi: fetchSheetsByFormListIdFromApi,
+      addElementToSheet: addElementToSheet,
+      updateIndexesForElements: updateIndexesForElements
     }
   }, children);
 }
@@ -61738,7 +61721,7 @@ function formListsReducer(state, action) {
 /*!************************************************!*\
   !*** ./resources/js/reducers/sheetsReducer.js ***!
   \************************************************/
-/*! exports provided: SHEETS_REQUEST, SHEETS_SUCCESS, SHEETS_FAIL, default */
+/*! exports provided: SHEETS_REQUEST, SHEETS_SUCCESS, SHEETS_FAIL, ADD_ELEMENT_TO_SHEET, UPDATE_INDEXES_FOR_ELEMENTS, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -61746,6 +61729,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SHEETS_REQUEST", function() { return SHEETS_REQUEST; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SHEETS_SUCCESS", function() { return SHEETS_SUCCESS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SHEETS_FAIL", function() { return SHEETS_FAIL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ADD_ELEMENT_TO_SHEET", function() { return ADD_ELEMENT_TO_SHEET; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UPDATE_INDEXES_FOR_ELEMENTS", function() { return UPDATE_INDEXES_FOR_ELEMENTS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return sheetsReducer; });
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -61756,6 +61741,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var SHEETS_REQUEST = "SHEETS_REQUEST";
 var SHEETS_SUCCESS = "SHEETS_SUCCESS";
 var SHEETS_FAIL = "SHEETS_FAIL";
+var ADD_ELEMENT_TO_SHEET = "ADD_ELEMENT_TO_SHEET";
+var UPDATE_INDEXES_FOR_ELEMENTS = "UPDATE_INDEXES_FOR_ELEMENTS";
 function sheetsReducer(state, action) {
   switch (action.type) {
     case SHEETS_REQUEST:
@@ -61765,6 +61752,7 @@ function sheetsReducer(state, action) {
 
     case SHEETS_SUCCESS:
       return _objectSpread({}, state, {
+        allSheets: action.allSheets,
         loading: false
       });
 
@@ -61772,6 +61760,83 @@ function sheetsReducer(state, action) {
       return _objectSpread({}, state, {
         loading: false,
         error: action.error
+      });
+
+    case ADD_ELEMENT_TO_SHEET:
+      if (action.payload === undefined) {
+        throw new Error("[".concat(ADD_ELEMENT_TO_SHEET, "]: no payload!"));
+      }
+
+      if (action.payload.sheetId === undefined || action.payload.index === undefined || action.payload.element === undefined) {
+        throw new Error("[".concat(ADD_ELEMENT_TO_SHEET, "]: bad payload data!"));
+      }
+
+      return _objectSpread({}, state, {
+        allSheets: state.allSheets.map(function (sheet) {
+          if (sheet.id === action.payload.sheetId) {
+            var answers = sheet.answers;
+            var i = action.payload.index;
+
+            while (answers[i]) {
+              answers[i++].index++;
+            }
+
+            answers.splice(action.payload.index, 0, action.payload.element);
+          }
+
+          return sheet;
+        })
+      });
+
+    case UPDATE_INDEXES_FOR_ELEMENTS:
+      if (action.payload === undefined) {
+        throw new Error("[".concat(ADD_ELEMENT_TO_SHEET, "]: no payload!"));
+      }
+
+      if (action.payload.oldIndex === undefined || action.payload.newIndex === undefined) {
+        throw new Error("[".concat(UPDATE_INDEXES_FOR_ELEMENTS, "]: bad payload data!"));
+      }
+
+      return _objectSpread({}, state, {
+        allSheets: state.allSheets.map(function (sheet) {
+          if (sheet.id === action.payload.sheetId) {
+            var answers = sheet.answers;
+            var _action$payload = action.payload,
+                oldIndex = _action$payload.oldIndex,
+                newIndex = _action$payload.newIndex;
+            var oldAnswer = answers[oldIndex];
+
+            if (oldIndex < newIndex) {
+              var i = newIndex;
+
+              while (i > oldIndex) {
+                answers[i--].index--;
+              }
+            } else {
+              var _i = oldIndex;
+
+              while (_i >= newIndex) {
+                answers[_i--].index++;
+              }
+            }
+
+            oldAnswer.index = newIndex;
+            answers.sort(function (a, b) {
+              if (a.index > b.index) {
+                return 1;
+              }
+
+              if (a.index < b.index) {
+                return -1;
+              }
+
+              return 0;
+            });
+            return sheet;
+          }
+
+          return sheet;
+        })
       });
 
     default:

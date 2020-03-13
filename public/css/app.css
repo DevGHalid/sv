@@ -18501,6 +18501,12 @@ svg {
 .fe-zoom-out:before {
   content: "\EA06";
 }
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
 .container {
   max-width: 1400px;
 }
@@ -18617,32 +18623,34 @@ svg {
   padding-bottom: 17px;
 }
 
-.nav-link-item.active {
-  color: #17a2b8;
-  border-bottom: 2px solid #17a2b8 !important;
-  padding-bottom: 15px;
+.sheets {
+  padding: 0 100px;
 }
 
-.question-item {
-  cursor: pointer;
-  color: #444;
-  border-radius: 4px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 20px;
-  font-size: 16px;
+.sheets-content {
+  display: flex;
 }
 
-.question-item:hover {
+.sheet {
+  width: 300px;
+  margin-right: 30px;
+}
+
+.sheet-item {
+  padding: 10px 20px;
   background-color: #fff;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  padding-left: 19px;
-  padding-top: 9px;
-  padding-bottom: 9px;
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.04);
 }
 
-.question-item .icon i {
-  color: #333;
+.sheet-item.action {
+  cursor: pointer;
+}
+
+.sheet-item.action:hover {
+  background-color: #e2e2e217;
 }
 

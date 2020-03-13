@@ -28,6 +28,8 @@ Route::group(['middleware' => 'auth:api', 'namespace' => 'Api'], function() {
 
   Route::prefix('sheets')->group(function() {
     Route::get('/', 'SheetController@index');
+    Route::post('{sheet}/elements/add', 'SheetController@addElementToSheet');
+    Route::post('{sheet}/elements/update-index', 'SheetController@updateIndexesForElements');
   });
 
   Route::prefix('form-list-elements')->group(function() {

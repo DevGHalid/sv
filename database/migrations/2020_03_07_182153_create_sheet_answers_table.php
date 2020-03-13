@@ -16,7 +16,7 @@ class CreateSheetAnswersTable extends Migration
         Schema::create('sheet_answers', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('sheet_id');
-            $table->integer('form_elemenet_id');
+            $table->integer('form_element_id');
             $table->integer('index')->default(0);
             $table->json('attributes');
             $table->timestamps();
