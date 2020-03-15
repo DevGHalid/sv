@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\Sheet;
+use App\Models\{Sheet, SheetAnswer};
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\{Response};
@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\{Response};
 class SheetController extends Controller
 {
     /**
-     * @param \Illuminate\Http\Request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Support\Facades\Response
      */
     public function index(Request $request)
@@ -34,23 +34,30 @@ class SheetController extends Controller
     }
 
     /**
-     * @param \App\Models\Sheet;
-     * @param \Illuminate\Http\Request
+     * @param \App\Models\Sheet $sheet
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Support\Facades\Response
      */
     public function addElementToSheet(Sheet $sheet, Request $request)
     {
       $request->validate([
         'element.id' => 'required',
-        'element.index' => 'required',
         'element.attributes' => 'required'
       ]);
 
-      $sheet->answers()->where('index', '>=', $request->element['index'])->increment('index');
+      $index = $request->element['index'];
+
+      if (is_null($index)) {
+        // last the answer to sheet
+        $last_answer = $sheet->answers()->orderBy('index', 'desc')->first();
+        $index = isset($last_answer) ? $last_answer->index + 1 : 0;
+      } else {
+        $sheet->answers()->where('index', '>=', $index)->increment('index');
+      }
 
       $sheet_answer = $sheet->answers()->create([
         'form_element_id' => $request->element['id'],
-        'index' => $request->element['index'],
+        'index' => $index,
         'attributes' => $request->element['attributes']
       ]);
 
@@ -67,8 +74,8 @@ class SheetController extends Controller
     }
 
     /**
-     * @param \App\Models\Sheet;
-     * @param \Illuminate\Http\Request
+     * @param \App\Models\Sheet $sheet
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Support\Facades\Response
      */
     public function updateIndexesForElements(Sheet $sheet, Request $request)
@@ -100,4 +107,64 @@ class SheetController extends Controller
         'updated' => $answer->save()
       ]);
     }
+
+    /**
+     * @param \App\Models\Sheet $sheet
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Support\Facades\Response
+     */
+    public function changeColumnToElement(Sheet $sheet, Request $request)
+    {
+      $request->validate([
+        'fromSheetId'  => 'required',
+        'fromIndex' => 'required'
+      ]);
+
+      $answer = SheetAnswer::where('sheet_id', $request->fromSheetId)
+        ->where('index', $request->fromIndex)
+        ->firstOrFail();
+
+      SheetAnswer::where('sheet_id', $request->fromSheetId)
+        ->where('index', '>', $request->fromIndex)
+        ->decrement('index');
+
+
+      if (is_null($request->toIndex)) {
+        // last the answer to sheet
+        $last_answer = $sheet->answers()
+          ->orderBy('index', 'desc')
+          ->first();
+
+        $request->toIndex = isset($last_answer) ? $last_answer->index + 1 : 1;
+      } else {
+        $sheet->answers()
+          ->where('index', '>=', $request->toIndex)
+          ->increment('index');
+      }
+
+      $answer->sheet_id = $sheet->id;
+      $answer->index = $request->toIndex;
+
+      return Response::json([
+        'changed' => $answer->save()
+      ]);
+    }
+
+    /**
+     * @param \App\Models\Sheet $sheet
+     * @param \App\Models\SheetAnswer $answer
+     * @return \Illuminate\Support\Facades\Response
+     */
+    public function removeElementFromSheet(Sheet $sheet, SheetAnswer $answer)
+    {
+      $result = $answer->delete();
+
+      $sheet->answers()
+        ->where('index', '>', $answer->index)
+        ->decrement('index');
+
+      return Response::json([
+        'deleted' => $result
+      ]);
+    } 
 }

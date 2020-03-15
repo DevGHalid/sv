@@ -17,4 +17,8 @@ class SheetAnswer extends Model
     protected $casts = [
         'attributes' => 'json'
     ];
+
+    public function elements() {
+        return $this->belongsTo(FormListElement::class, 'form_element_id');
+    }
 }

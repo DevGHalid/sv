@@ -60653,6 +60653,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _contexts_FormListContext__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../contexts/FormListContext */ "./resources/js/contexts/FormListContext.js");
 /* harmony import */ var _contexts_FormListElementsContext__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../contexts/FormListElementsContext */ "./resources/js/contexts/FormListElementsContext.js");
 /* harmony import */ var _contexts_SheetsContext__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../contexts/SheetsContext */ "./resources/js/contexts/SheetsContext.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 
 
 
@@ -60684,7 +60694,9 @@ function FormListContent(_ref) {
       sheets = _useContext2.sheets,
       fetchSheetsByFormListIdFromApi = _useContext2.fetchSheetsByFormListIdFromApi,
       addElementToSheet = _useContext2.addElementToSheet,
-      updateIndexesForElements = _useContext2.updateIndexesForElements;
+      updateIndexForElement = _useContext2.updateIndexForElement,
+      changeColumnToElement = _useContext2.changeColumnToElement,
+      removeElementFromSheet = _useContext2.removeElementFromSheet;
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     fetchSheetsByFormListIdFromApi(formListItem.id);
@@ -60698,27 +60710,54 @@ function FormListContent(_ref) {
     fetchAllFormListElementsFromApi();
   }, []);
 
-  var handleDrop = function handleDrop(sheetId) {
+  var handleDrop = function handleDrop(sheetIdx) {
     return function (item) {
+      var sheet = sheets.allSheets[sheetIdx];
       var removedIndex = item.removedIndex,
           addedIndex = item.addedIndex,
           payload = item.payload;
       if (removedIndex === null && addedIndex === null) return; // add element to sheets
 
-      if (addedIndex !== null && removedIndex === null) {
-        var element = Object.assign(payload, {
-          index: addedIndex
-        });
-        addElementToSheet(element, sheetId);
-      } // swap places 
+      if (addedIndex !== null && payload !== null && removedIndex === null) {
+        if ("sheet_id" in payload) {
+          var answer = sheet.answers[addedIndex];
+          var answerIndex = answer ? answer.index : null;
+          changeColumnToElement({
+            sheetId: payload.sheet_id,
+            index: payload.index
+          }, {
+            sheetId: sheet.id,
+            index: answerIndex
+          });
+        } else {
+          var _answer = sheet.answers[addedIndex];
+
+          var _answerIndex = _answer ? _answer.index : null;
+
+          var element = Object.assign(payload, {
+            index: _answerIndex
+          });
+          addElementToSheet(element, sheet.id);
+        }
+
+        return;
+      } // swap places
 
 
       if (removedIndex !== null && addedIndex !== null) {
-        updateIndexesForElements({
-          oldIndex: removedIndex,
-          newIndex: addedIndex
-        }, sheetId);
+        var oldIndex = sheet.answers[removedIndex].index;
+        var newIndex = sheet.answers[addedIndex].index;
+        updateIndexForElement({
+          oldIndex: oldIndex,
+          newIndex: newIndex
+        }, sheet.id);
       }
+    };
+  };
+
+  var handleRemoveElement = function handleRemoveElement(answerId, sheetId) {
+    return function () {
+      removeElementFromSheet(answerId, sheetId);
     };
   };
 
@@ -60747,7 +60786,7 @@ function FormListContent(_ref) {
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
       className: element.icon
     })), element.title));
-  })))), sheets.allSheets.map(function (sheet, idx) {
+  })))), sheets.allSheets.map(function (sheet, sheetIdx) {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "sheet",
       key: sheet.id
@@ -60758,22 +60797,61 @@ function FormListContent(_ref) {
       getChildPayload: function getChildPayload(i) {
         return sheet.answers[i];
       },
-      onDrop: handleDrop(sheet.id)
+      onDrop: handleDrop(sheetIdx)
     }, sheet.answers.map(function (answer) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_smooth_dnd__WEBPACK_IMPORTED_MODULE_2__["Draggable"], {
         className: "sheet-item action",
         key: answer.index
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-item-text"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "mr-2"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: answer.icon
-      })), answer.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fe fe-x"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(SheetItem, _extends({}, answer, {
+        onRemoveElement: handleRemoveElement(answer.id, sheet.id)
       })));
     }))));
   })));
+}
+
+function SheetItem(_ref2) {
+  var icon = _ref2.icon,
+      title = _ref2.title,
+      onRemoveElement = _ref2.onRemoveElement;
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      isRemoving = _useState2[0],
+      setIsRemoving = _useState2[1];
+
+  var handleConfirmRemoveElement = function handleConfirmRemoveElement() {
+    setIsRemoving(false);
+    onRemoveElement();
+  };
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "sheet-item-text"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "mr-2"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: icon
+  })), title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "sheet-item-actions"
+  }, isRemoving ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "sheet-item-action",
+    onClick: handleConfirmRemoveElement
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fe fe-check"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "sheet-item-action",
+    onClick: function onClick() {
+      return setIsRemoving(false);
+    }
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fe fe-x"
+  }))) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "sheet-item-action",
+    onClick: function onClick() {
+      return setIsRemoving(true);
+    }
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fe fe-trash"
+  }))));
 }
 
 function Loader() {
@@ -61457,25 +61535,72 @@ function SheetsProvider(_ref) {
         return sheet.id === sheetId;
       }); // replace the data
 
-      sheet.answers.splice(data.index, 1, data);
-    });
+      sheet.answers = sheet.answers.map(function (answer) {
+        if (answer.index === data.index) {
+          return data;
+        }
+
+        return answer;
+      });
+      dispatch({
+        type: _reducers_sheetsReducer__WEBPACK_IMPORTED_MODULE_2__["SHEETS_SUCCESS"],
+        allSheets: sheets.allSheets
+      });
+    }); // add element to sheet
+
     dispatch({
       type: _reducers_sheetsReducer__WEBPACK_IMPORTED_MODULE_2__["ADD_ELEMENT_TO_SHEET"],
       payload: {
         sheetId: sheetId,
-        index: element.index,
         element: element
       }
     });
   }
 
-  function updateIndexesForElements(idxs, sheetId) {
-    axios.post("".concat(BASE_URL, "/api/sheets/").concat(sheetId, "/elements/update-index"), idxs).then(function (response) {});
+  function updateIndexForElement(idxs, sheetId) {
+    axios.post("".concat(BASE_URL, "/api/sheets/").concat(sheetId, "/elements/update-index"), idxs);
     dispatch({
-      type: _reducers_sheetsReducer__WEBPACK_IMPORTED_MODULE_2__["UPDATE_INDEXES_FOR_ELEMENTS"],
-      payload: Object.assign(idxs, {
-        sheetId: sheetId
-      })
+      type: _reducers_sheetsReducer__WEBPACK_IMPORTED_MODULE_2__["UPDATE_INDEX_FOR_ELEMENT"],
+      payload: {
+        sheetId: sheetId,
+        oldIndex: idxs.oldIndex,
+        newIndex: idxs.newIndex
+      }
+    });
+  }
+
+  function changeColumnToElement(from, to) {
+    axios.post("".concat(BASE_URL, "/api/sheets/").concat(to.sheetId, "/elements/change-column"), {
+      fromSheetId: from.sheetId,
+      fromIndex: from.index,
+      toIndex: to.index
+    });
+    dispatch({
+      type: _reducers_sheetsReducer__WEBPACK_IMPORTED_MODULE_2__["CHANGE_COLUMN_TO_ELEMENT"],
+      payload: {
+        from: {
+          sheetId: from.sheetId,
+          index: from.index
+        },
+        to: {
+          sheetId: to.sheetId,
+          index: to.index
+        }
+      }
+    });
+  }
+
+  function removeElementFromSheet(answerId, sheetId) {
+    axios["delete"]("".concat(BASE_URL, "/api/sheets/").concat(sheetId, "/elements/").concat(answerId, "/delete")).then(function (response) {
+      if (response.data.deleted) {
+        dispatch({
+          type: _reducers_sheetsReducer__WEBPACK_IMPORTED_MODULE_2__["REMOVE_ELEMENT_FROM_SHEET"],
+          payload: {
+            sheetId: sheetId,
+            answerId: answerId
+          }
+        });
+      }
     });
   }
 
@@ -61484,7 +61609,9 @@ function SheetsProvider(_ref) {
       sheets: sheets,
       fetchSheetsByFormListIdFromApi: fetchSheetsByFormListIdFromApi,
       addElementToSheet: addElementToSheet,
-      updateIndexesForElements: updateIndexesForElements
+      updateIndexForElement: updateIndexForElement,
+      changeColumnToElement: changeColumnToElement,
+      removeElementFromSheet: removeElementFromSheet
     }
   }, children);
 }
@@ -61721,7 +61848,7 @@ function formListsReducer(state, action) {
 /*!************************************************!*\
   !*** ./resources/js/reducers/sheetsReducer.js ***!
   \************************************************/
-/*! exports provided: SHEETS_REQUEST, SHEETS_SUCCESS, SHEETS_FAIL, ADD_ELEMENT_TO_SHEET, UPDATE_INDEXES_FOR_ELEMENTS, default */
+/*! exports provided: SHEETS_REQUEST, SHEETS_SUCCESS, SHEETS_FAIL, ADD_ELEMENT_TO_SHEET, UPDATE_INDEX_FOR_ELEMENT, CHANGE_COLUMN_TO_ELEMENT, REMOVE_ELEMENT_FROM_SHEET, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -61730,7 +61857,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SHEETS_SUCCESS", function() { return SHEETS_SUCCESS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SHEETS_FAIL", function() { return SHEETS_FAIL; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ADD_ELEMENT_TO_SHEET", function() { return ADD_ELEMENT_TO_SHEET; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UPDATE_INDEXES_FOR_ELEMENTS", function() { return UPDATE_INDEXES_FOR_ELEMENTS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UPDATE_INDEX_FOR_ELEMENT", function() { return UPDATE_INDEX_FOR_ELEMENT; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CHANGE_COLUMN_TO_ELEMENT", function() { return CHANGE_COLUMN_TO_ELEMENT; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_ELEMENT_FROM_SHEET", function() { return REMOVE_ELEMENT_FROM_SHEET; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return sheetsReducer; });
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -61742,7 +61871,9 @@ var SHEETS_REQUEST = "SHEETS_REQUEST";
 var SHEETS_SUCCESS = "SHEETS_SUCCESS";
 var SHEETS_FAIL = "SHEETS_FAIL";
 var ADD_ELEMENT_TO_SHEET = "ADD_ELEMENT_TO_SHEET";
-var UPDATE_INDEXES_FOR_ELEMENTS = "UPDATE_INDEXES_FOR_ELEMENTS";
+var UPDATE_INDEX_FOR_ELEMENT = "UPDATE_INDEX_FOR_ELEMENT";
+var CHANGE_COLUMN_TO_ELEMENT = "CHANGE_COLUMN_TO_ELEMENT";
+var REMOVE_ELEMENT_FROM_SHEET = "REMOVE_ELEMENT_FROM_SHEET";
 function sheetsReducer(state, action) {
   switch (action.type) {
     case SHEETS_REQUEST:
@@ -61767,7 +61898,7 @@ function sheetsReducer(state, action) {
         throw new Error("[".concat(ADD_ELEMENT_TO_SHEET, "]: no payload!"));
       }
 
-      if (action.payload.sheetId === undefined || action.payload.index === undefined || action.payload.element === undefined) {
+      if (action.payload.sheetId === undefined || action.payload.element === undefined) {
         throw new Error("[".concat(ADD_ELEMENT_TO_SHEET, "]: bad payload data!"));
       }
 
@@ -61775,20 +61906,58 @@ function sheetsReducer(state, action) {
         allSheets: state.allSheets.map(function (sheet) {
           if (sheet.id === action.payload.sheetId) {
             var answers = sheet.answers;
-            var i = action.payload.index;
+            var element = action.payload.element;
+            var index = element.index;
 
-            while (answers[i]) {
-              answers[i++].index++;
+            if (index !== null) {
+              var newAnswers = answers.reduce(function (newAnswers, answer) {
+                if (answer.index === index) {
+                  newAnswers.push(element);
+                }
+
+                newAnswers.push(answer);
+                return newAnswers;
+              }, []);
+              var _iteratorNormalCompletion = true;
+              var _didIteratorError = false;
+              var _iteratorError = undefined;
+
+              try {
+                for (var _iterator = answers[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                  var answer = _step.value;
+
+                  if (answer.index >= index) {
+                    answer.index++;
+                  }
+                }
+              } catch (err) {
+                _didIteratorError = true;
+                _iteratorError = err;
+              } finally {
+                try {
+                  if (!_iteratorNormalCompletion && _iterator["return"] != null) {
+                    _iterator["return"]();
+                  }
+                } finally {
+                  if (_didIteratorError) {
+                    throw _iteratorError;
+                  }
+                }
+              }
+
+              sheet.answers = newAnswers;
+            } else {
+              var lastAnswer = answers[answers.length - 1];
+              element.index = lastAnswer != null ? lastAnswer.index + 1 : 0;
+              sheet.answers = sheet.answers.concat(element);
             }
-
-            answers.splice(action.payload.index, 0, action.payload.element);
           }
 
           return sheet;
         })
       });
 
-    case UPDATE_INDEXES_FOR_ELEMENTS:
+    case UPDATE_INDEX_FOR_ELEMENT:
       if (action.payload === undefined) {
         throw new Error("[".concat(ADD_ELEMENT_TO_SHEET, "]: no payload!"));
       }
@@ -61800,23 +61969,67 @@ function sheetsReducer(state, action) {
       return _objectSpread({}, state, {
         allSheets: state.allSheets.map(function (sheet) {
           if (sheet.id === action.payload.sheetId) {
-            var answers = sheet.answers;
             var _action$payload = action.payload,
                 oldIndex = _action$payload.oldIndex,
                 newIndex = _action$payload.newIndex;
-            var oldAnswer = answers[oldIndex];
+            var answers = sheet.answers;
+            var oldAnswer = answers.find(function (answer) {
+              return answer.index === oldIndex;
+            });
 
             if (oldIndex < newIndex) {
-              var i = newIndex;
+              var _iteratorNormalCompletion2 = true;
+              var _didIteratorError2 = false;
+              var _iteratorError2 = undefined;
 
-              while (i > oldIndex) {
-                answers[i--].index--;
+              try {
+                for (var _iterator2 = answers[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+                  var answer = _step2.value;
+
+                  if (answer.index > oldIndex && answer.index <= newIndex) {
+                    answer.index--;
+                  }
+                }
+              } catch (err) {
+                _didIteratorError2 = true;
+                _iteratorError2 = err;
+              } finally {
+                try {
+                  if (!_iteratorNormalCompletion2 && _iterator2["return"] != null) {
+                    _iterator2["return"]();
+                  }
+                } finally {
+                  if (_didIteratorError2) {
+                    throw _iteratorError2;
+                  }
+                }
               }
             } else {
-              var _i = oldIndex;
+              var _iteratorNormalCompletion3 = true;
+              var _didIteratorError3 = false;
+              var _iteratorError3 = undefined;
 
-              while (_i >= newIndex) {
-                answers[_i--].index++;
+              try {
+                for (var _iterator3 = answers[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+                  var _answer = _step3.value;
+
+                  if (_answer.index < oldIndex && _answer.index >= newIndex) {
+                    _answer.index++;
+                  }
+                }
+              } catch (err) {
+                _didIteratorError3 = true;
+                _iteratorError3 = err;
+              } finally {
+                try {
+                  if (!_iteratorNormalCompletion3 && _iterator3["return"] != null) {
+                    _iterator3["return"]();
+                  }
+                } finally {
+                  if (_didIteratorError3) {
+                    throw _iteratorError3;
+                  }
+                }
               }
             }
 
@@ -61832,10 +62045,139 @@ function sheetsReducer(state, action) {
 
               return 0;
             });
-            return sheet;
           }
 
           return sheet;
+        })
+      });
+
+    case CHANGE_COLUMN_TO_ELEMENT:
+      var _action$payload2 = action.payload,
+          to = _action$payload2.to,
+          from = _action$payload2.from;
+      return _objectSpread({}, state, {
+        allSheets: state.allSheets.map(function (sheet) {
+          if (sheet.id === to.sheetId) {
+            var fromSheet = state.allSheets.find(function (sheet) {
+              return sheet.id === from.sheetId;
+            });
+            var fromAnswerIndex = fromSheet.answers.findIndex(function (answer) {
+              return answer.index === from.index;
+            });
+            var fromAnswer = fromSheet.answers.splice(fromAnswerIndex, 1)[0];
+            var _iteratorNormalCompletion4 = true;
+            var _didIteratorError4 = false;
+            var _iteratorError4 = undefined;
+
+            try {
+              for (var _iterator4 = fromSheet.answers[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+                var fromItem = _step4.value;
+
+                if (fromItem.index > fromAnswer.index) {
+                  fromItem.index--;
+                }
+              }
+            } catch (err) {
+              _didIteratorError4 = true;
+              _iteratorError4 = err;
+            } finally {
+              try {
+                if (!_iteratorNormalCompletion4 && _iterator4["return"] != null) {
+                  _iterator4["return"]();
+                }
+              } finally {
+                if (_didIteratorError4) {
+                  throw _iteratorError4;
+                }
+              }
+            }
+
+            if (to.index === null) {
+              var lastAnswer = sheet.answers[sheet.answers.length - 1];
+              fromAnswer.sheet_id = to.sheetId;
+              fromAnswer.index = lastAnswer !== undefined ? lastAnswer.index + 1 : 1;
+              sheet.answers.push(fromAnswer);
+            } else {
+              var toAnswerIndex = sheet.answers.findIndex(function (answer) {
+                return answer.index === to.index;
+              });
+              var _iteratorNormalCompletion5 = true;
+              var _didIteratorError5 = false;
+              var _iteratorError5 = undefined;
+
+              try {
+                for (var _iterator5 = sheet.answers[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
+                  var toItem = _step5.value;
+
+                  if (toItem.index >= to.index) {
+                    toItem.index++;
+                  }
+                }
+              } catch (err) {
+                _didIteratorError5 = true;
+                _iteratorError5 = err;
+              } finally {
+                try {
+                  if (!_iteratorNormalCompletion5 && _iterator5["return"] != null) {
+                    _iterator5["return"]();
+                  }
+                } finally {
+                  if (_didIteratorError5) {
+                    throw _iteratorError5;
+                  }
+                }
+              }
+
+              fromAnswer.sheet_id = to.sheetId;
+              fromAnswer.index = to.index;
+              sheet.answers.splice(toAnswerIndex, 0, fromAnswer);
+            }
+          }
+
+          return sheet;
+        })
+      });
+
+    case REMOVE_ELEMENT_FROM_SHEET:
+      return _objectSpread({}, state, {
+        allSheets: state.allSheets.map(function (sheet) {
+          if (sheet.id === action.payload.sheetId) {
+            var answer = sheet.answers.find(function (answer) {
+              return answer.id === action.payload.answerId;
+            });
+            var _iteratorNormalCompletion6 = true;
+            var _didIteratorError6 = false;
+            var _iteratorError6 = undefined;
+
+            try {
+              for (var _iterator6 = sheet.answers[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
+                var item = _step6.value;
+
+                if (item.index > answer.index) {
+                  item.index--;
+                }
+              }
+            } catch (err) {
+              _didIteratorError6 = true;
+              _iteratorError6 = err;
+            } finally {
+              try {
+                if (!_iteratorNormalCompletion6 && _iterator6["return"] != null) {
+                  _iterator6["return"]();
+                }
+              } finally {
+                if (_didIteratorError6) {
+                  throw _iteratorError6;
+                }
+              }
+            }
+
+            sheet.answers = sheet.answers.filter(function (item) {
+              return item.id !== answer.id;
+            });
+          }
+
+          return _objectSpread({}, sheet);
         })
       });
 

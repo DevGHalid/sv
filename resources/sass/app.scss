@@ -148,7 +148,23 @@ body {
 
    &:hover {
     background-color: #e2e2e217;
+    
+    .sheet-item-actions {
+      display: flex;
+    }
    }
   }
  }
+}
+
+.sheet-item-actions {
+  display: none;
+}
+
+.sheet-item-action {
+  margin-right: 10px;
+
+  &:last-child {
+    margin-right: 0;
+  }
 }

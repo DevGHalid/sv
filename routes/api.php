@@ -30,6 +30,8 @@ Route::group(['middleware' => 'auth:api', 'namespace' => 'Api'], function() {
     Route::get('/', 'SheetController@index');
     Route::post('{sheet}/elements/add', 'SheetController@addElementToSheet');
     Route::post('{sheet}/elements/update-index', 'SheetController@updateIndexesForElements');
+    Route::post('{sheet}/elements/change-column', 'SheetController@changeColumnToElement');
+    Route::delete('{sheet}/elements/{answer}/delete', 'SheetController@removeElementFromSheet');
   });
 
   Route::prefix('form-list-elements')->group(function() {

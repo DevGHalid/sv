@@ -32,7 +32,9 @@ function FormListContent({ formListItem }) {
     sheets,
     fetchSheetsByFormListIdFromApi,
     addElementToSheet,
-    updateIndexesForElements
+    updateIndexForElement,
+    changeColumnToElement,
+    removeElementFromSheet
   } = useContext(SheetsContext);
 
   useEffect(() => {
@@ -47,21 +49,50 @@ function FormListContent({ formListItem }) {
     fetchAllFormListElementsFromApi();
   }, []);
 
-  const handleDrop = sheetId => item => {
+  const handleDrop = sheetIdx => item => {
+    const sheet = sheets.allSheets[sheetIdx];
     const { removedIndex, addedIndex, payload } = item;
+
     if (removedIndex === null && addedIndex === null) return;
 
     // add element to sheets
-    if (addedIndex !== null && removedIndex === null) {
-      const element = Object.assign(payload, { index: addedIndex });
+    if (addedIndex !== null && payload !== null && removedIndex === null) {
+      if ("sheet_id" in payload) {
+        const answer = sheet.answers[addedIndex];
+        const answerIndex = answer ? answer.index : null;
 
-      addElementToSheet(element, sheetId);
+        changeColumnToElement(
+          {
+            sheetId: payload.sheet_id,
+            index: payload.index
+          },
+          {
+            sheetId: sheet.id,
+            index: answerIndex
+          }
+        );
+      } else {
+        const answer = sheet.answers[addedIndex];
+        const answerIndex = answer ? answer.index : null;
+        const element = Object.assign(payload, { index: answerIndex });
+
+        addElementToSheet(element, sheet.id);
+      }
+
+      return;
     }
 
-    // swap places 
+    // swap places
     if (removedIndex !== null && addedIndex !== null) {
-      updateIndexesForElements({ oldIndex: removedIndex, newIndex: addedIndex}, sheetId); 
+      const { index: oldIndex } = sheet.answers[removedIndex];
+      const { index: newIndex } = sheet.answers[addedIndex];
+
+      updateIndexForElement({ oldIndex, newIndex }, sheet.id);
     }
+  };
+
+  const handleRemoveElement = (answerId, sheetId) => () => {
+    removeElementFromSheet(answerId, sheetId);
   };
 
   return (
@@ -92,29 +123,24 @@ function FormListContent({ formListItem }) {
               </Container>
             </div>
           </div>
-          {sheets.allSheets.map((sheet, idx) => {
+          {sheets.allSheets.map((sheet, sheetIdx) => {
             return (
               <div className="sheet" key={sheet.id}>
                 <div className="sheet-content">
                   <Container
                     groupName="elements"
                     getChildPayload={i => sheet.answers[i]}
-                    onDrop={handleDrop(sheet.id)}
+                    onDrop={handleDrop(sheetIdx)}
                   >
                     {sheet.answers.map(answer => (
                       <Draggable
                         className="sheet-item action"
                         key={answer.index}
                       >
-                        <div className="sheet-item-text">
-                          <span className="mr-2">
-                            <i className={answer.icon}></i>
-                          </span>
-                          {answer.title}
-                        </div>
-                        <div>
-                          <i className="fe fe-x"></i>
-                        </div>
+                        <SheetItem
+                          {...answer}
+                          onRemoveElement={handleRemoveElement(answer.id, sheet.id)}
+                        />
                       </Draggable>
                     ))}
                   </Container>
@@ -125,6 +151,44 @@ function FormListContent({ formListItem }) {
         </div>
       )}
     </div>
+  );
+}
+
+function SheetItem({ icon, title, onRemoveElement }) {
+  const [isRemoving, setIsRemoving] = useState(
+    false
+  );
+
+  const handleConfirmRemoveElement = () => {
+    setIsRemoving(false);
+    onRemoveElement();
+  }
+
+  return (
+    <>
+      <div className="sheet-item-text">
+        <span className="mr-2">
+          <i className={icon}></i>
+        </span>
+        {title}
+      </div>
+      <div className="sheet-item-actions">
+        {isRemoving ? (
+          <>
+            <span className="sheet-item-action" onClick={handleConfirmRemoveElement}>
+              <i className="fe fe-check"></i>
+            </span>
+            <span className="sheet-item-action" onClick={() => setIsRemoving(false)}>
+              <i className="fe fe-x"></i>
+            </span>
+          </>
+        ) : (
+          <span className="sheet-item-action" onClick={() => setIsRemoving(true)}>
+            <i className="fe fe-trash"></i>
+          </span>
+        )}
+      </div>
+    </>
   );
 }
 
