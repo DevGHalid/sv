@@ -7,6 +7,7 @@ export default function Master() {
   <div className="page">
    <div className="page-main">
     <Header />
+    <Navigation />
    </div>
   </div>
  );

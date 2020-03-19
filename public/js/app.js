@@ -60038,12 +60038,14 @@ function App() {
     }
   }, [auth.loggedIn]);
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
-    path: "/",
+    path: "/home",
     component: _pages_Home__WEBPACK_IMPORTED_MODULE_4__["default"],
     exact: true
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     path: "/login",
     component: _pages_Login__WEBPACK_IMPORTED_MODULE_3__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
+    to: "/home"
   }));
 }
 
@@ -60224,7 +60226,7 @@ function Master() {
     className: "page"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "page-main"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_1__["default"], null)));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Navigation__WEBPACK_IMPORTED_MODULE_2__["default"], null)));
 }
 
 /***/ }),
@@ -60241,9 +60243,61 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Navigation; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_2__);
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
 
 function Navigation() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "navigation");
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([{
+    title: "Гланая",
+    to: "/home",
+    icon: "fe fe-home"
+  }, {
+    title: "Сотрудники",
+    to: "/users",
+    icon: "fe fe-users"
+  }, {
+    title: "Формы",
+    to: "/form-lists",
+    icon: "fe fe-file-text"
+  }]),
+      _useState2 = _slicedToArray(_useState, 2),
+      menu = _useState2[0],
+      setMenu = _useState2[1];
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "header d-lg-flex p-0 collapse"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "container"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "row align-items-center"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-lg-3 ml-auto"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col col-lg order-lg-first"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+    className: "nav nav-tabs border-0 flex-column flex-lg-row"
+  }, menu.map(function (item) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+      className: "nav-item",
+      key: item.title
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
+      to: item.to,
+      className: "nav-link"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: classnames__WEBPACK_IMPORTED_MODULE_2___default()("mr-2", item.icon)
+    }), item.title));
+  }))))));
 }
 
 /***/ }),
@@ -60300,7 +60354,7 @@ function Login() {
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     if (auth.loggedIn) {
-      history.push("/");
+      history.push("/home");
     }
   }, [auth.loggedIn]);
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
