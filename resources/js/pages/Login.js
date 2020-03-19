@@ -10,7 +10,7 @@ export default function Login() {
 
  useEffect(() => {
   if (auth.loggedIn) {
-   history.push("/");
+   history.push("/home");
   }
  }, [auth.loggedIn]);
 
