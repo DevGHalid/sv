@@ -60021,6 +60021,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _contexts_AuthContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../contexts/AuthContext */ "./resources/js/contexts/AuthContext.js");
 /* harmony import */ var _pages_Login__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../pages/Login */ "./resources/js/pages/Login.js");
 /* harmony import */ var _pages_Home__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../pages/Home */ "./resources/js/pages/Home.js");
+/* harmony import */ var _pages_sheets_Sheets__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../pages/sheets/Sheets */ "./resources/js/pages/sheets/Sheets.js");
+
 
 
 
@@ -60044,6 +60046,9 @@ function App() {
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     path: "/login",
     component: _pages_Login__WEBPACK_IMPORTED_MODULE_3__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    path: "/sheets",
+    component: _pages_sheets_Sheets__WEBPACK_IMPORTED_MODULE_5__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
     to: "/home"
   }));
@@ -60221,12 +60226,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function Master() {
+function Master(_ref) {
+  var children = _ref.children;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "page"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "page-main"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Navigation__WEBPACK_IMPORTED_MODULE_2__["default"], null)));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Navigation__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "page-content"
+  }, children)));
 }
 
 /***/ }),
@@ -60267,8 +60275,8 @@ function Navigation() {
     to: "/users",
     icon: "fe fe-users"
   }, {
-    title: "Формы",
-    to: "/form-lists",
+    title: "Листы",
+    to: "/sheets",
     icon: "fe fe-file-text"
   }]),
       _useState2 = _slicedToArray(_useState, 2),
@@ -60419,6 +60427,27 @@ function Login() {
       className: "text-danger"
     }, auth.error.message[0])));
   }))))));
+}
+
+/***/ }),
+
+/***/ "./resources/js/pages/sheets/Sheets.js":
+/*!*********************************************!*\
+  !*** ./resources/js/pages/sheets/Sheets.js ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Sheets; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _layouts_Master__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../layouts/Master */ "./resources/js/layouts/Master.js");
+
+
+function Sheets() {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_layouts_Master__WEBPACK_IMPORTED_MODULE_1__["default"], null, "Sheets");
 }
 
 /***/ }),

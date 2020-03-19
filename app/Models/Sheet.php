@@ -9,7 +9,7 @@ class Sheet extends Model
     /**
      * @var array
      */
-    protected $fillable = ['form_list_id', 'user_id'];
+    protected $fillable = ['user_id', 'title'];
 
     public function answers()
     {
