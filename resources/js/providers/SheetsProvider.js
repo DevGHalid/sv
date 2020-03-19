@@ -4,6 +4,7 @@ import sheetsReducer, {
   SHEETS_SUCCESS,
   SHEETS_REQUEST,
   SHEETS_FAIL,
+  ADD_SHEET_TO_FORM_LIST,
   ADD_ELEMENT_TO_SHEET,
   UPDATE_INDEX_FOR_ELEMENT,
   CHANGE_COLUMN_TO_ELEMENT,
@@ -123,6 +124,15 @@ export default function SheetsProvider({ children }) {
       });
   }
 
+  function addSheetToFormList(formListId) {
+    axios.post(`${BASE_URL}/api/form-lists/${formListId}/add/sheet`).then(response => {
+      dispatch({
+        type: ADD_SHEET_TO_FORM_LIST,
+        sheet: response.data
+      })
+    }).catch(error => error);
+  }
+
   return (
     <SheetsContext.Provider
       value={{
@@ -131,7 +141,8 @@ export default function SheetsProvider({ children }) {
         addElementToSheet,
         updateIndexForElement,
         changeColumnToElement,
-        removeElementFromSheet
+        removeElementFromSheet,
+        addSheetToFormList
       }}
     >
       {children}

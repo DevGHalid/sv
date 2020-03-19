@@ -60051,13 +60051,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _contexts_AuthContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../contexts/AuthContext */ "./resources/js/contexts/AuthContext.js");
 /* harmony import */ var _pages_Login__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../pages/Login */ "./resources/js/pages/Login.js");
 /* harmony import */ var _pages_Home__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../pages/Home */ "./resources/js/pages/Home.js");
-/* harmony import */ var _pages_Users__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../pages/Users */ "./resources/js/pages/Users.js");
-/* harmony import */ var _providers_FormListsProvider__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../providers/FormListsProvider */ "./resources/js/providers/FormListsProvider.js");
-/* harmony import */ var _pages_formLists_FormLists__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../pages/formLists/FormLists */ "./resources/js/pages/formLists/FormLists.js");
-/* harmony import */ var _providers_FormListProvider__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../providers/FormListProvider */ "./resources/js/providers/FormListProvider.js");
-/* harmony import */ var _pages_formList_FormList__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../pages/formList/FormList */ "./resources/js/pages/formList/FormList.js");
-/* harmony import */ var _providers_FormListElementsProvider__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../providers/FormListElementsProvider */ "./resources/js/providers/FormListElementsProvider.js");
-/* harmony import */ var _providers_SheetsProvider__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../providers/SheetsProvider */ "./resources/js/providers/SheetsProvider.js");
+/* harmony import */ var _providers_UsersProvider__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../providers/UsersProvider */ "./resources/js/providers/UsersProvider.js");
+/* harmony import */ var _pages_users_Users__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../pages/users/Users */ "./resources/js/pages/users/Users.js");
+/* harmony import */ var _providers_FormListsProvider__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../providers/FormListsProvider */ "./resources/js/providers/FormListsProvider.js");
+/* harmony import */ var _pages_formLists_FormLists__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../pages/formLists/FormLists */ "./resources/js/pages/formLists/FormLists.js");
+/* harmony import */ var _providers_FormListProvider__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../providers/FormListProvider */ "./resources/js/providers/FormListProvider.js");
+/* harmony import */ var _pages_formList_FormList__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../pages/formList/FormList */ "./resources/js/pages/formList/FormList.js");
+/* harmony import */ var _providers_FormListElementsProvider__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../providers/FormListElementsProvider */ "./resources/js/providers/FormListElementsProvider.js");
+/* harmony import */ var _providers_SheetsProvider__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../providers/SheetsProvider */ "./resources/js/providers/SheetsProvider.js");
+
 
 
 
@@ -60082,22 +60084,23 @@ function App() {
     }
   }, [auth.loggedIn]);
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
-    path: "/",
-    component: _pages_Home__WEBPACK_IMPORTED_MODULE_4__["default"],
-    exact: true
+    path: "/home",
+    component: _pages_Home__WEBPACK_IMPORTED_MODULE_4__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     path: "/users",
-    component: _pages_Users__WEBPACK_IMPORTED_MODULE_5__["default"]
+    render: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_providers_UsersProvider__WEBPACK_IMPORTED_MODULE_5__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pages_users_Users__WEBPACK_IMPORTED_MODULE_6__["default"], null));
+    }
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     path: "/form-lists",
     render: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_providers_FormListsProvider__WEBPACK_IMPORTED_MODULE_6__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pages_formLists_FormLists__WEBPACK_IMPORTED_MODULE_7__["default"], null));
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_providers_FormListsProvider__WEBPACK_IMPORTED_MODULE_7__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pages_formLists_FormLists__WEBPACK_IMPORTED_MODULE_8__["default"], null));
     },
     exact: true
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     path: "/form-lists/:id/edit",
     render: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_providers_FormListProvider__WEBPACK_IMPORTED_MODULE_8__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_providers_FormListElementsProvider__WEBPACK_IMPORTED_MODULE_10__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_providers_SheetsProvider__WEBPACK_IMPORTED_MODULE_11__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pages_formList_FormList__WEBPACK_IMPORTED_MODULE_9__["default"], null))));
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_providers_FormListProvider__WEBPACK_IMPORTED_MODULE_9__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_providers_FormListElementsProvider__WEBPACK_IMPORTED_MODULE_11__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_providers_SheetsProvider__WEBPACK_IMPORTED_MODULE_12__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pages_formList_FormList__WEBPACK_IMPORTED_MODULE_10__["default"], null))));
     }
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     path: "/login",
@@ -60215,6 +60218,27 @@ var SheetsContext = react__WEBPACK_IMPORTED_MODULE_0___default.a.createContext({
   error: null
 });
 /* harmony default export */ __webpack_exports__["default"] = (SheetsContext);
+
+/***/ }),
+
+/***/ "./resources/js/contexts/UsersContext.js":
+/*!***********************************************!*\
+  !*** ./resources/js/contexts/UsersContext.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+var UsersContext = react__WEBPACK_IMPORTED_MODULE_0___default.a.createContext({
+  allUsers: [],
+  loading: false,
+  error: null
+});
+/* harmony default export */ __webpack_exports__["default"] = (UsersContext);
 
 /***/ }),
 
@@ -60344,6 +60368,31 @@ function Header() {
 
 /***/ }),
 
+/***/ "./resources/js/layouts/Loader.js":
+/*!****************************************!*\
+  !*** ./resources/js/layouts/Loader.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Loader; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function Loader(_ref) {
+  var className = _ref.className;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: classnames__WEBPACK_IMPORTED_MODULE_1___default()("loader", className)
+  });
+}
+
+/***/ }),
+
 /***/ "./resources/js/layouts/Master.js":
 /*!****************************************!*\
   !*** ./resources/js/layouts/Master.js ***!
@@ -60453,9 +60502,13 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function Navigation() {
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([{
+    title: "Гланая",
+    to: "/home",
+    icon: "fe fe-home"
+  }, {
     title: "Сотрудники",
     to: "/users",
-    icon: "fe fe-home"
+    icon: "fe fe-users"
   }, {
     title: "Формы",
     to: "/form-lists",
@@ -60544,7 +60597,7 @@ function Login() {
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     if (auth.loggedIn) {
-      history.push("/");
+      history.push("/home");
     }
   }, [auth.loggedIn]);
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -60613,27 +60666,6 @@ function Login() {
 
 /***/ }),
 
-/***/ "./resources/js/pages/Users.js":
-/*!*************************************!*\
-  !*** ./resources/js/pages/Users.js ***!
-  \*************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Users; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _layouts_Master__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../layouts/Master */ "./resources/js/layouts/Master.js");
-
-
-function Users() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_layouts_Master__WEBPACK_IMPORTED_MODULE_1__["default"], null, "Users");
-}
-
-/***/ }),
-
 /***/ "./resources/js/pages/formList/FormList.js":
 /*!*************************************************!*\
   !*** ./resources/js/pages/formList/FormList.js ***!
@@ -60650,9 +60682,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_smooth_dnd__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-smooth-dnd */ "./node_modules/react-smooth-dnd/dist/index.js");
 /* harmony import */ var react_smooth_dnd__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_smooth_dnd__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _layouts_Master__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../layouts/Master */ "./resources/js/layouts/Master.js");
-/* harmony import */ var _contexts_FormListContext__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../contexts/FormListContext */ "./resources/js/contexts/FormListContext.js");
-/* harmony import */ var _contexts_FormListElementsContext__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../contexts/FormListElementsContext */ "./resources/js/contexts/FormListElementsContext.js");
-/* harmony import */ var _contexts_SheetsContext__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../contexts/SheetsContext */ "./resources/js/contexts/SheetsContext.js");
+/* harmony import */ var _layouts_Loader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../layouts/Loader */ "./resources/js/layouts/Loader.js");
+/* harmony import */ var _contexts_FormListContext__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../contexts/FormListContext */ "./resources/js/contexts/FormListContext.js");
+/* harmony import */ var _contexts_FormListElementsContext__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../contexts/FormListElementsContext */ "./resources/js/contexts/FormListElementsContext.js");
+/* harmony import */ var _contexts_SheetsContext__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../contexts/SheetsContext */ "./resources/js/contexts/SheetsContext.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
@@ -60670,11 +60703,12 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 
 
 
+
 function FormList() {
   var history = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["useHistory"])();
   var params = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["useParams"])();
 
-  var _useContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_FormListContext__WEBPACK_IMPORTED_MODULE_4__["default"]),
+  var _useContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_FormListContext__WEBPACK_IMPORTED_MODULE_5__["default"]),
       formList = _useContext.formList,
       fetchFormListFromApi = _useContext.fetchFormListFromApi;
 
@@ -60682,7 +60716,9 @@ function FormList() {
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     fetchFormListFromApi(params.id);
   }, []);
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_layouts_Master__WEBPACK_IMPORTED_MODULE_3__["default"], null, !formListItem ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Loader, null) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(FormListContent, {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_layouts_Master__WEBPACK_IMPORTED_MODULE_3__["default"], null, !formListItem ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_layouts_Loader__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    className: "m-auto mt-lg-9"
+  }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(FormListContent, {
     formListItem: formListItem
   }));
 }
@@ -60690,19 +60726,20 @@ function FormList() {
 function FormListContent(_ref) {
   var formListItem = _ref.formListItem;
 
-  var _useContext2 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_SheetsContext__WEBPACK_IMPORTED_MODULE_6__["default"]),
+  var _useContext2 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_SheetsContext__WEBPACK_IMPORTED_MODULE_7__["default"]),
       sheets = _useContext2.sheets,
       fetchSheetsByFormListIdFromApi = _useContext2.fetchSheetsByFormListIdFromApi,
       addElementToSheet = _useContext2.addElementToSheet,
       updateIndexForElement = _useContext2.updateIndexForElement,
       changeColumnToElement = _useContext2.changeColumnToElement,
-      removeElementFromSheet = _useContext2.removeElementFromSheet;
+      removeElementFromSheet = _useContext2.removeElementFromSheet,
+      addSheetToFormList = _useContext2.addSheetToFormList;
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     fetchSheetsByFormListIdFromApi(formListItem.id);
   }, []);
 
-  var _useContext3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_FormListElementsContext__WEBPACK_IMPORTED_MODULE_5__["default"]),
+  var _useContext3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_FormListElementsContext__WEBPACK_IMPORTED_MODULE_6__["default"]),
       formListElements = _useContext3.formListElements,
       fetchAllFormListElementsFromApi = _useContext3.fetchAllFormListElementsFromApi;
 
@@ -60763,10 +60800,12 @@ function FormListContent(_ref) {
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "sheets"
-  }, sheets.loading ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Loader, null) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, sheets.loading ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_layouts_Loader__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    className: "m-auto mt-lg-9"
+  }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "sheets-content"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "sheet"
+    className: "sheet sheet-constructor"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "sheet-content"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_smooth_dnd__WEBPACK_IMPORTED_MODULE_2__["Container"], {
@@ -60786,12 +60825,16 @@ function FormListContent(_ref) {
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
       className: element.icon
     })), element.title));
-  })))), sheets.allSheets.map(function (sheet, sheetIdx) {
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(SheetAdd, {
+    onAddSheet: function onAddSheet() {
+      return addSheetToFormList(formListItem.id);
+    }
+  }))), sheets.allSheets.map(function (sheet, sheetIdx) {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "sheet",
       key: sheet.id
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "sheet-content"
+      className: "sheet-content ".concat(!sheet.answers.length ? "sheet-content-empty" : "")
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_smooth_dnd__WEBPACK_IMPORTED_MODULE_2__["Container"], {
       groupName: "elements",
       getChildPayload: function getChildPayload(i) {
@@ -60854,10 +60897,22 @@ function SheetItem(_ref2) {
   }))));
 }
 
-function Loader() {
+function SheetAdd(_ref3) {
+  var onAddSheet = _ref3.onAddSheet;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "loader m-auto mt-lg-9"
-  });
+    className: "sheet sheet-add",
+    onClick: onAddSheet
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "sheet-content"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "sheet-item"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "sheet-item-text"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "mr-2"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fe fe-plus"
+  })), "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u043B\u0438\u0441\u0442"))));
 }
 
 /***/ }),
@@ -60919,13 +60974,13 @@ function FormListRemove(_ref) {
     className: "mt-2"
   }, "\u041F\u043E\u0436\u0430\u043B\u0443\u0439\u0441\u0442\u0430, \u0432\u0432\u0435\u0434\u0438\u0442\u0435 ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("code", {
     className: "text-dark"
-  }, formListTitle), " \u0434\u043B\u044F \u043F\u043E\u0434\u0442\u0432\u0435\u0440\u0436\u0434\u0435\u043D\u0438\u044F."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, formListTitle), " ", "\u0434\u043B\u044F \u043F\u043E\u0434\u0442\u0432\u0435\u0440\u0436\u0434\u0435\u043D\u0438\u044F."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "form-group mt-4"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     className: "form-control",
     onChange: function onChange(_ref2) {
       var target = _ref2.target;
-      return setConfirmingTitle(target.value);
+      return setConfirmingTitle(target.value.trim());
     }
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "mt-4"
@@ -60952,9 +61007,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _layouts_Master__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../layouts/Master */ "./resources/js/layouts/Master.js");
-/* harmony import */ var _contexts_FormListsContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../contexts/FormListsContext */ "./resources/js/contexts/FormListsContext.js");
-/* harmony import */ var _FormListsAdd__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./FormListsAdd */ "./resources/js/pages/formLists/FormListsAdd.js");
-/* harmony import */ var _FormListRemove__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./FormListRemove */ "./resources/js/pages/formLists/FormListRemove.js");
+/* harmony import */ var _layouts_Loader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../layouts/Loader */ "./resources/js/layouts/Loader.js");
+/* harmony import */ var _contexts_FormListsContext__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../contexts/FormListsContext */ "./resources/js/contexts/FormListsContext.js");
+/* harmony import */ var _FormListsAdd__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./FormListsAdd */ "./resources/js/pages/formLists/FormListsAdd.js");
+/* harmony import */ var _FormListRemove__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./FormListRemove */ "./resources/js/pages/formLists/FormListRemove.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
@@ -60969,10 +61025,11 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 function FormLists() {
   var history = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["useHistory"])();
 
-  var _useContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_FormListsContext__WEBPACK_IMPORTED_MODULE_3__["default"]),
+  var _useContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_FormListsContext__WEBPACK_IMPORTED_MODULE_4__["default"]),
       formLists = _useContext.formLists,
       fetchAllFormListsFromApi = _useContext.fetchAllFormListsFromApi;
 
@@ -60990,7 +61047,7 @@ function FormLists() {
       isAdding = _useState4[0],
       setIsAdding = _useState4[1];
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_layouts_Master__WEBPACK_IMPORTED_MODULE_2__["default"], null, removingFormList && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FormListRemove__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_layouts_Master__WEBPACK_IMPORTED_MODULE_2__["default"], null, removingFormList && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FormListRemove__WEBPACK_IMPORTED_MODULE_6__["default"], {
     formListId: removingFormList.id,
     formListTitle: removingFormList.title,
     onClose: function onClose() {
@@ -61016,7 +61073,9 @@ function FormLists() {
     className: "fe fe-plus mr-1"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0424\u043E\u0440\u043C\u0443")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card-body"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+  }, formLists.loading ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_layouts_Loader__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    className: "m-auto"
+  }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
     className: "table table-light table-hover"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     scope: "col"
@@ -61026,39 +61085,41 @@ function FormLists() {
     scope: "col"
   }, "\u041A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u0430 \u043B\u0438\u0441\u0442\u043E\u0432"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     scope: "col"
-  }, "\u0414\u0430\u0442\u0430"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, formLists.allFormLists.map(function (formList) {
+  }, "\u0414\u0430\u0442\u0430"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", {
+    className: "form-lists"
+  }, formLists.allFormLists.map(function (formList) {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
       key: formList.id
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "nav-link p-0 leading-none"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-      className: "avatar"
+      className: "avatar avatar-lg mr-2"
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "ml-2 d-none d-lg-block"
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "text-default"
-    }, formList.user.name))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, formList.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "0"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, formList.created_at), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }, formList.user.name))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, formList.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, formList.sheet_count), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, formList.created_at), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "d-flex justify-content-end"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "form-action form-action-edit mr-3"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-      className: "btn btn-sm btn-primary-only-text btn-pill",
+      className: "form-list-action mr-3",
       onClick: function onClick() {
         return history.push("/form-lists/".concat(formList.id, "/edit"));
       }
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
       className: "fe fe-edit mr-1"
-    }), "\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "form-action form-action-remove"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-      className: "btn btn-sm btn-danger-only-text btn-pill",
+    })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "form-list-action mr-3"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fe fe-copy mr-1"
+    })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "form-list-action",
       onClick: function onClick() {
         return setRemovingFirmList(formList);
       }
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
       className: "fe fe-trash-2 mr-1"
-    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "\u0423\u0434\u0430\u043B\u0438\u0442\u044C"))))));
-  }), isAdding && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FormListsAdd__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    })))));
+  }), isAdding && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FormListsAdd__WEBPACK_IMPORTED_MODULE_5__["default"], {
     onCancel: function onCancel() {
       return setIsAdding(false);
     }
@@ -61140,24 +61201,98 @@ function FormListAdd(_ref) {
   }, "\u0417\u0430\u043F\u043E\u043B\u043D\u0438\u0442\u0435 \u043F\u043E\u043B\u0435")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "0"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C\u0441\u044F \u0434\u0430\u0442\u0430 \u043F\u043E\u0441\u043B\u0435 \u0434\u043E\u0431\u0430\u0432\u043B\u0435\u043D\u0438\u044F\"")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "d-flex justify-content-end"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "form-action form-action-edit mr-3"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: "btn btn-sm btn-outline-cyan btn-pill",
+    className: "form-list-action form-action-edit mr-3",
     onClick: handleSaveTitle
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fe fe-save mr-1"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "form-action form-action-remove",
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "form-list-action form-action-remove",
     onClick: onCancel
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: "btn btn-sm btn-outline-cyan btn-pill"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fe fe-x mr-1"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "\u041E\u0442\u043C\u0435\u043D\u0438\u0442\u044C"))))));
+  })))));
 }
 FormListAdd.propTypes = {
   onCancel: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func.isRequired
 };
+
+/***/ }),
+
+/***/ "./resources/js/pages/users/Users.js":
+/*!*******************************************!*\
+  !*** ./resources/js/pages/users/Users.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Users; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _layouts_Master__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../layouts/Master */ "./resources/js/layouts/Master.js");
+/* harmony import */ var _layouts_Loader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../layouts/Loader */ "./resources/js/layouts/Loader.js");
+/* harmony import */ var _contexts_UsersContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../contexts/UsersContext */ "./resources/js/contexts/UsersContext.js");
+
+
+
+
+function Users() {
+  var _useContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_UsersContext__WEBPACK_IMPORTED_MODULE_3__["default"]),
+      users = _useContext.users,
+      fetchAllUsersFormApi = _useContext.fetchAllUsersFormApi;
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    fetchAllUsersFormApi();
+  }, []);
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_layouts_Master__WEBPACK_IMPORTED_MODULE_1__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "container"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card-header justify-content-between"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+    className: "card-title"
+  }, "\u0421\u043E\u0442\u0440\u0443\u0434\u043D\u0438\u043A\u0438"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "form-btn-action"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "btn btn-sm btn-outline-cyan"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fe fe-user-plus mr-1"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0441\u043E\u0442\u0440\u0443\u0434\u043D\u0438\u043A\u0430")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card-body"
+  }, users.loading ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_layouts_Loader__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    className: "m-auto"
+  }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+    className: "table table-light table-hover"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+    scope: "col"
+  }, "\u0418\u041C\u0424"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+    scope: "col"
+  }, "E-Mail"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+    scope: "col"
+  }, "\u0414\u043E\u043B\u0436\u043D\u043E\u0441\u0442\u044C"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", {
+    className: "form-lists"
+  }, users.allUsers.map(function (user) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
+      key: user.id
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "nav-link p-0 leading-none"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "avatar avatar-lg mr-2"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "ml-2 d-none d-lg-block"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "text-default"
+    }, user.name))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, user.email), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "\u0410\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "d-flex justify-content-end"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "user-action"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fe fe-trash-2 mr-1"
+    })))));
+  })))))));
+}
 
 /***/ }),
 
@@ -61295,7 +61430,7 @@ function FormListElementsProvider(_ref) {
         resolve(response);
       })["catch"](function (error) {
         dispatch({
-          type: _reducers_formListElementsReducer__WEBPACK_IMPORTED_MODULE_2__["FORM_LIST_ELEMENT_FAIL"],
+          type: _reducers_formListElementsReducer__WEBPACK_IMPORTED_MODULE_2__["FORM_LIST_ELEMENTS_FAIL"],
           error: error
         });
         reject(error);
@@ -61604,6 +61739,17 @@ function SheetsProvider(_ref) {
     });
   }
 
+  function addSheetToFormList(formListId) {
+    axios.post("".concat(BASE_URL, "/api/form-lists/").concat(formListId, "/add/sheet")).then(function (response) {
+      dispatch({
+        type: _reducers_sheetsReducer__WEBPACK_IMPORTED_MODULE_2__["ADD_SHEET_TO_FORM_LIST"],
+        sheet: response.data
+      });
+    })["catch"](function (error) {
+      return error;
+    });
+  }
+
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_contexts_SheetsContext__WEBPACK_IMPORTED_MODULE_1__["default"].Provider, {
     value: {
       sheets: sheets,
@@ -61611,7 +61757,69 @@ function SheetsProvider(_ref) {
       addElementToSheet: addElementToSheet,
       updateIndexForElement: updateIndexForElement,
       changeColumnToElement: changeColumnToElement,
-      removeElementFromSheet: removeElementFromSheet
+      removeElementFromSheet: removeElementFromSheet,
+      addSheetToFormList: addSheetToFormList
+    }
+  }, children);
+}
+
+/***/ }),
+
+/***/ "./resources/js/providers/UsersProvider.js":
+/*!*************************************************!*\
+  !*** ./resources/js/providers/UsersProvider.js ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return UsersProvider; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _contexts_UsersContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../contexts/UsersContext */ "./resources/js/contexts/UsersContext.js");
+/* harmony import */ var _reducers_usersReducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../reducers/usersReducer */ "./resources/js/reducers/usersReducer.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+function UsersProvider(_ref) {
+  var children = _ref.children;
+  var initialState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_UsersContext__WEBPACK_IMPORTED_MODULE_1__["default"]);
+
+  var _useReducer = Object(react__WEBPACK_IMPORTED_MODULE_0__["useReducer"])(_reducers_usersReducer__WEBPACK_IMPORTED_MODULE_2__["default"], initialState),
+      _useReducer2 = _slicedToArray(_useReducer, 2),
+      users = _useReducer2[0],
+      dispatch = _useReducer2[1];
+
+  function fetchAllUsersFormApi() {
+    dispatch({
+      type: _reducers_usersReducer__WEBPACK_IMPORTED_MODULE_2__["USERS_REQUEST"]
+    });
+    axios.get("".concat(BASE_URL, "/api/users")).then(function (response) {
+      dispatch({
+        type: _reducers_usersReducer__WEBPACK_IMPORTED_MODULE_2__["USERS_SUCCESS"],
+        users: response.data
+      });
+    })["catch"](function (error) {
+      dispatch({
+        type: _reducers_usersReducer__WEBPACK_IMPORTED_MODULE_2__["USERS_FAIL"],
+        users: response.data
+      });
+    });
+  }
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_contexts_UsersContext__WEBPACK_IMPORTED_MODULE_1__["default"].Provider, {
+    value: {
+      users: users,
+      fetchAllUsersFormApi: fetchAllUsersFormApi
     }
   }, children);
 }
@@ -61662,20 +61870,20 @@ function authReducer(state, action) {
       });
 
     case LOGIN_FAIL:
-      return {
+      return _objectSpread({}, state, {
         user: {},
         loading: false,
         error: action.error,
         loggedIn: false
-      };
+      });
 
     case LOGOUT:
-      return {
+      return _objectSpread({}, state, {
         user: {},
         loading: false,
         error: null,
         loggedIn: false
-      };
+      });
   }
 }
 
@@ -61685,14 +61893,14 @@ function authReducer(state, action) {
 /*!**********************************************************!*\
   !*** ./resources/js/reducers/formListElementsReducer.js ***!
   \**********************************************************/
-/*! exports provided: FORM_LIST_ELEMENTS_REQUEST, FORM_LIST_ELEMENTS_SUCCESS, FORM_LIST_ELEMENT_FAIL, default */
+/*! exports provided: FORM_LIST_ELEMENTS_REQUEST, FORM_LIST_ELEMENTS_SUCCESS, FORM_LIST_ELEMENTS_FAIL, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FORM_LIST_ELEMENTS_REQUEST", function() { return FORM_LIST_ELEMENTS_REQUEST; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FORM_LIST_ELEMENTS_SUCCESS", function() { return FORM_LIST_ELEMENTS_SUCCESS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FORM_LIST_ELEMENT_FAIL", function() { return FORM_LIST_ELEMENT_FAIL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FORM_LIST_ELEMENTS_FAIL", function() { return FORM_LIST_ELEMENTS_FAIL; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return formListElementsReducer; });
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -61702,7 +61910,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 var FORM_LIST_ELEMENTS_REQUEST = "FORM_LIST_ELEMENTS_REQUEST";
 var FORM_LIST_ELEMENTS_SUCCESS = "FORM_LIST_ELEMENTS_SUCCESS";
-var FORM_LIST_ELEMENT_FAIL = "FORM_LIST_ELEMENTS_FAIL";
+var FORM_LIST_ELEMENTS_FAIL = "FORM_LIST_ELEMENTS_FAIL";
 function formListElementsReducer(state, action) {
   switch (action.type) {
     case FORM_LIST_ELEMENTS_REQUEST:
@@ -61717,7 +61925,7 @@ function formListElementsReducer(state, action) {
         allFormListElements: action.formListElements
       });
 
-    case FORM_LIST_ELEMENT_FAIL:
+    case FORM_LIST_ELEMENTS_FAIL:
       return _objectSpread({}, state, {
         loading: false,
         error: action.error
@@ -61848,7 +62056,7 @@ function formListsReducer(state, action) {
 /*!************************************************!*\
   !*** ./resources/js/reducers/sheetsReducer.js ***!
   \************************************************/
-/*! exports provided: SHEETS_REQUEST, SHEETS_SUCCESS, SHEETS_FAIL, ADD_ELEMENT_TO_SHEET, UPDATE_INDEX_FOR_ELEMENT, CHANGE_COLUMN_TO_ELEMENT, REMOVE_ELEMENT_FROM_SHEET, default */
+/*! exports provided: SHEETS_REQUEST, SHEETS_SUCCESS, SHEETS_FAIL, ADD_SHEET_TO_FORM_LIST, ADD_ELEMENT_TO_SHEET, UPDATE_INDEX_FOR_ELEMENT, CHANGE_COLUMN_TO_ELEMENT, REMOVE_ELEMENT_FROM_SHEET, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -61856,6 +62064,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SHEETS_REQUEST", function() { return SHEETS_REQUEST; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SHEETS_SUCCESS", function() { return SHEETS_SUCCESS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SHEETS_FAIL", function() { return SHEETS_FAIL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ADD_SHEET_TO_FORM_LIST", function() { return ADD_SHEET_TO_FORM_LIST; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ADD_ELEMENT_TO_SHEET", function() { return ADD_ELEMENT_TO_SHEET; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UPDATE_INDEX_FOR_ELEMENT", function() { return UPDATE_INDEX_FOR_ELEMENT; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CHANGE_COLUMN_TO_ELEMENT", function() { return CHANGE_COLUMN_TO_ELEMENT; });
@@ -61870,6 +62079,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var SHEETS_REQUEST = "SHEETS_REQUEST";
 var SHEETS_SUCCESS = "SHEETS_SUCCESS";
 var SHEETS_FAIL = "SHEETS_FAIL";
+var ADD_SHEET_TO_FORM_LIST = "ADD_SHEET_TO_FORM_LIST";
 var ADD_ELEMENT_TO_SHEET = "ADD_ELEMENT_TO_SHEET";
 var UPDATE_INDEX_FOR_ELEMENT = "UPDATE_INDEX_FOR_ELEMENT";
 var CHANGE_COLUMN_TO_ELEMENT = "CHANGE_COLUMN_TO_ELEMENT";
@@ -61891,6 +62101,11 @@ function sheetsReducer(state, action) {
       return _objectSpread({}, state, {
         loading: false,
         error: action.error
+      });
+
+    case ADD_SHEET_TO_FORM_LIST:
+      return _objectSpread({}, state, {
+        allSheets: state.allSheets.concat(action.sheet)
       });
 
     case ADD_ELEMENT_TO_SHEET:
@@ -62177,12 +62392,58 @@ function sheetsReducer(state, action) {
             });
           }
 
-          return _objectSpread({}, sheet);
+          return sheet;
         })
       });
 
     default:
       return state;
+  }
+}
+
+/***/ }),
+
+/***/ "./resources/js/reducers/usersReducer.js":
+/*!***********************************************!*\
+  !*** ./resources/js/reducers/usersReducer.js ***!
+  \***********************************************/
+/*! exports provided: USERS_REQUEST, USERS_SUCCESS, USERS_FAIL, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "USERS_REQUEST", function() { return USERS_REQUEST; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "USERS_SUCCESS", function() { return USERS_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "USERS_FAIL", function() { return USERS_FAIL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return usersReducer; });
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var USERS_REQUEST = "USERS_REQUEST";
+var USERS_SUCCESS = "USERS_SUCCESS";
+var USERS_FAIL = "USERS_FAIL";
+function usersReducer(state, action) {
+  switch (action.type) {
+    case USERS_REQUEST:
+      return _objectSpread({}, state, {
+        loading: true
+      });
+
+    case USERS_SUCCESS:
+      return _objectSpread({}, state, {
+        allUsers: action.users,
+        loading: false,
+        error: null
+      });
+
+    case USERS_FAIL:
+      return _objectSpread({}, state, {
+        loading: false,
+        error: action.error
+      });
   }
 }
 

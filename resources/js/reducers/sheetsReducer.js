@@ -2,6 +2,8 @@ export const SHEETS_REQUEST = "SHEETS_REQUEST";
 export const SHEETS_SUCCESS = "SHEETS_SUCCESS";
 export const SHEETS_FAIL = "SHEETS_FAIL";
 
+export const ADD_SHEET_TO_FORM_LIST = "ADD_SHEET_TO_FORM_LIST";
+
 export const ADD_ELEMENT_TO_SHEET = "ADD_ELEMENT_TO_SHEET";
 export const UPDATE_INDEX_FOR_ELEMENT = "UPDATE_INDEX_FOR_ELEMENT";
 export const CHANGE_COLUMN_TO_ELEMENT = "CHANGE_COLUMN_TO_ELEMENT";
@@ -25,6 +27,12 @@ export default function sheetsReducer(state, action) {
         ...state,
         loading: false,
         error: action.error
+      };
+
+    case ADD_SHEET_TO_FORM_LIST:
+      return {
+        ...state,
+        allSheets: state.allSheets.concat(action.sheet)
       };
     case ADD_ELEMENT_TO_SHEET:
       if (action.payload === undefined) {
@@ -193,7 +201,7 @@ export default function sheetsReducer(state, action) {
 
             sheet.answers = sheet.answers.filter(item => item.id !== answer.id);
           }
-          return { ...sheet };
+          return sheet;
         })
       };
     default:

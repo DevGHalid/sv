@@ -19,14 +19,20 @@ Route::group(['namespace' => 'Auth', 'prefix' => 'auth'], function() {
 });
 
 Route::group(['middleware' => 'auth:api', 'namespace' => 'Api'], function() {
-  Route::prefix('form-lists')->group(function() {
+  Route::prefix('/users')->group(function() {
+    Route::get('/', 'UserController@index');
+  });
+
+  Route::prefix('/form-lists')->group(function() {
     Route::get('/', 'FormListController@index');
     Route::post('/create', 'FormListController@create');
     Route::get('/{form_list}/edit', 'FormListController@edit');
-    Route::delete('{form_list_id}/delete', 'FormListController@destroy');
+    Route::delete('{form_list}/delete', 'FormListController@destroy');
+
+    Route::post('{form_list}/add/sheet', 'FormListController@addSheetToFormList');
   });
 
-  Route::prefix('sheets')->group(function() {
+  Route::prefix('/sheets')->group(function() {
     Route::get('/', 'SheetController@index');
     Route::post('{sheet}/elements/add', 'SheetController@addElementToSheet');
     Route::post('{sheet}/elements/update-index', 'SheetController@updateIndexesForElements');
@@ -34,7 +40,7 @@ Route::group(['middleware' => 'auth:api', 'namespace' => 'Api'], function() {
     Route::delete('{sheet}/elements/{answer}/delete', 'SheetController@removeElementFromSheet');
   });
 
-  Route::prefix('form-list-elements')->group(function() {
+  Route::prefix('/form-list-elements')->group(function() {
     Route::get('/', 'FormListElementController@index');
   });
 });

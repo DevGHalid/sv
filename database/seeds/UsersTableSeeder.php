@@ -21,11 +21,6 @@ class UsersTableSeeder extends Seeder
             'api_token' => Str::random(60),
         ]); 
 
-        User::create([
-            'name' => 'Gamzat',
-            'email' => 'gamzat@mail.ru',
-            'password' => Hash::make('123456'),
-            'api_token' => Str::random(60),
-        ]); 
+        factory(User::class, 15)->create();
     }
 }

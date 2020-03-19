@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\FormList;
+use App\Models\{FormList, Sheet};
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\{Response, Auth};
+use Illuminate\Support\Facades\{Auth, Response, DB};
 
 class FormListController extends Controller
 {
@@ -14,7 +14,15 @@ class FormListController extends Controller
    */
   public function index()
   {
-    $form_lists = FormList::select('id', 'user_id', 'title', 'created_at')
+    $form_lists = FormList::select(
+      'form_lists.id',
+      'form_lists.user_id',
+      'form_lists.title',
+      'form_lists.created_at',
+      DB::raw('COUNT(sheets.id) as sheet_count')
+    )
+      ->leftJoin('sheets', 'form_lists.id', 'sheets.form_list_id')
+      ->groupBy('form_lists.id')
       ->with('user:id,name')
       ->get();
 
@@ -43,6 +51,25 @@ class FormListController extends Controller
   }
 
   /**
+   * @param int $form_list_id
+   * @return \Illuminate\Support\Facades\Response
+   */
+  public function addSheetToFormList($form_list_id)
+  {
+    $sheet = Sheet::create([
+      'user_id' => Auth::id(),
+      'form_list_id' => $form_list_id
+    ]);
+
+    return Response::json([
+      'id' => $sheet->id,
+      'user_id' => $sheet->user_id,
+      'form_list_id' => $sheet->form_list_id,
+      'answers' => []
+    ]);
+  }
+
+  /**
    * @param \App\Models\FormList $form_list
    * @return \Illuminate\Support\Facades\Response
    */
@@ -56,10 +83,19 @@ class FormListController extends Controller
    * @param int $form_list_id
    * @return \Illuminate\Support\Facades\Response
    */
-  public function destroy($form_list_id)
+  public function destroy(FormList $form_list)
   {
+    // remove all answers from the form list
+    $form_list->sheets()->each(function($sheet) {
+      $sheet->answers()->delete();
+    });
+
+    // remove all sheets from the form list
+    $form_list->sheets()->delete();
+
     return Response::json([
-      'deleted' => FormList::destroy($form_list_id)
+      // remove the form list
+      'deleted' => $form_list->delete()
     ]);
   }
 }

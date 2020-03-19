@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { NavLink, useHistory, useParams } from "react-router-dom";
 import { Container, Draggable } from "react-smooth-dnd";
 import Master from "../../layouts/Master";
+import Loader from "../../layouts/Loader";
 import FormListContext from "../../contexts/FormListContext";
 import FormListElementsContext from "../../contexts/FormListElementsContext";
 import SheetsContext from "../../contexts/SheetsContext";
@@ -19,7 +20,7 @@ export default function FormList() {
   return (
     <Master>
       {!formListItem ? (
-        <Loader />
+        <Loader className="m-auto mt-lg-9" />
       ) : (
         <FormListContent formListItem={formListItem} />
       )}
@@ -34,7 +35,8 @@ function FormListContent({ formListItem }) {
     addElementToSheet,
     updateIndexForElement,
     changeColumnToElement,
-    removeElementFromSheet
+    removeElementFromSheet,
+    addSheetToFormList
   } = useContext(SheetsContext);
 
   useEffect(() => {
@@ -98,10 +100,10 @@ function FormListContent({ formListItem }) {
   return (
     <div className="sheets">
       {sheets.loading ? (
-        <Loader />
+        <Loader className="m-auto mt-lg-9" />
       ) : (
         <div className="sheets-content">
-          <div className="sheet">
+          <div className="sheet sheet-constructor">
             <div className="sheet-content">
               <Container
                 groupName="elements"
@@ -121,12 +123,19 @@ function FormListContent({ formListItem }) {
                   );
                 })}
               </Container>
+              <SheetAdd
+                onAddSheet={() => addSheetToFormList(formListItem.id)}
+              />
             </div>
           </div>
           {sheets.allSheets.map((sheet, sheetIdx) => {
             return (
               <div className="sheet" key={sheet.id}>
-                <div className="sheet-content">
+                <div
+                  className={`sheet-content ${
+                    !sheet.answers.length ? "sheet-content-empty" : ""
+                  }`}
+                >
                   <Container
                     groupName="elements"
                     getChildPayload={i => sheet.answers[i]}
@@ -139,7 +148,10 @@ function FormListContent({ formListItem }) {
                       >
                         <SheetItem
                           {...answer}
-                          onRemoveElement={handleRemoveElement(answer.id, sheet.id)}
+                          onRemoveElement={handleRemoveElement(
+                            answer.id,
+                            sheet.id
+                          )}
                         />
                       </Draggable>
                     ))}
@@ -155,14 +167,12 @@ function FormListContent({ formListItem }) {
 }
 
 function SheetItem({ icon, title, onRemoveElement }) {
-  const [isRemoving, setIsRemoving] = useState(
-    false
-  );
+  const [isRemoving, setIsRemoving] = useState(false);
 
   const handleConfirmRemoveElement = () => {
     setIsRemoving(false);
     onRemoveElement();
-  }
+  };
 
   return (
     <>
@@ -175,15 +185,24 @@ function SheetItem({ icon, title, onRemoveElement }) {
       <div className="sheet-item-actions">
         {isRemoving ? (
           <>
-            <span className="sheet-item-action" onClick={handleConfirmRemoveElement}>
+            <span
+              className="sheet-item-action"
+              onClick={handleConfirmRemoveElement}
+            >
               <i className="fe fe-check"></i>
             </span>
-            <span className="sheet-item-action" onClick={() => setIsRemoving(false)}>
+            <span
+              className="sheet-item-action"
+              onClick={() => setIsRemoving(false)}
+            >
               <i className="fe fe-x"></i>
             </span>
           </>
         ) : (
-          <span className="sheet-item-action" onClick={() => setIsRemoving(true)}>
+          <span
+            className="sheet-item-action"
+            onClick={() => setIsRemoving(true)}
+          >
             <i className="fe fe-trash"></i>
           </span>
         )}
@@ -192,6 +211,19 @@ function SheetItem({ icon, title, onRemoveElement }) {
   );
 }
 
-function Loader() {
-  return <div className="loader m-auto mt-lg-9"></div>;
+function SheetAdd({ onAddSheet }) {
+  return (
+    <div className="sheet sheet-add" onClick={onAddSheet}>
+      <div className="sheet-content">
+        <div className="sheet-item">
+          <div className="sheet-item-text">
+            <span className="mr-2">
+              <i className="fe fe-plus"></i>
+            </span>
+            Добавить лист
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }

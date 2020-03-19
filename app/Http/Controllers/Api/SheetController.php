@@ -17,6 +17,10 @@ class SheetController extends Controller
     {
       $sheets = Sheet::select('id', 'user_id', 'form_list_id');
 
+      if ($request->has('form_list_id')) {
+        $sheets->where('form_list_id', $request->form_list_id);
+      }
+
       $sheets->with(['answers' => function($query) {
         $query->join('form_list_elements AS elements', 'sheet_answers.form_element_id', 'elements.id');
         $query->select(

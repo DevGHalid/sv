@@ -18553,40 +18553,6 @@ body {
   cursor: pointer;
 }
 
-.btn-primary-only-text {
-  box-shadow: unset !important;
-  font-weight: 400;
-  color: #467fcf;
-  background-color: transparent;
-}
-
-.btn-primary-only-text:hover {
-  color: #295a9f;
-  background-color: transparent;
-  border-color: transparent;
-}
-
-.btn-primary-only-text:active {
-  opacity: 0.7;
-}
-
-.btn-danger-only-text {
-  box-shadow: unset !important;
-  font-weight: 400;
-  color: #cd201f;
-  background-color: transparent;
-}
-
-.btn-danger-only-text:hover {
-  color: #961818;
-  background-color: transparent;
-  border-color: transparent;
-}
-
-.btn-danger-only-text:active {
-  opacity: 0.7;
-}
-
 .nav-tabs .nav-link.active {
   color: #17a2b8;
   border-color: #17a2b8;
@@ -18623,17 +18589,39 @@ body {
   padding-bottom: 17px;
 }
 
+.user-action,
+.form-list-action {
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.user-action:hover,
+.form-list-action:hover {
+  color: #818181;
+}
+
+.avatar-lg {
+  width: 40px;
+  height: 40px;
+}
+
 .sheets {
-  padding: 0 100px;
+  padding: 0 50px;
 }
 
 .sheets-content {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .sheet {
   width: 300px;
   margin-right: 30px;
+}
+
+.sheet-content-empty {
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.04);
+  background-color: #fff;
 }
 
 .sheet-item {
@@ -18668,5 +18656,14 @@ body {
 
 .sheet-item-action:last-child {
   margin-right: 0;
+}
+
+.sheet-add .sheet-item {
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.sheet-add .sheet-item:hover {
+  background-color: #ffffff00;
 }
 
