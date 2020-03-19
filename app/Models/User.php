@@ -40,8 +40,8 @@ class User extends Authenticatable
 
     public function updateApiToken()
     {
-        $user->api_token = Str::random(60);
-        return $user->save();
+        $this->api_token = Str::random(60);
+        return $this->save();
     }
 
     public function resetApiToken()

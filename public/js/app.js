@@ -60318,7 +60318,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Home() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_layouts_Master__WEBPACK_IMPORTED_MODULE_1__["default"], null, "1");
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_layouts_Master__WEBPACK_IMPORTED_MODULE_1__["default"], null, "Home");
 }
 
 /***/ }),
@@ -60484,10 +60484,12 @@ function AuthProvider(_ref) {
 
   function logout() {
     axios.post("".concat(BASE_URL, "/api/auth/logout")).then(function (response) {
-      dispatch({
-        type: _reducers_authReducer__WEBPACK_IMPORTED_MODULE_2__["LOGOUT"]
-      });
-      Object(_helpers_authHelper__WEBPACK_IMPORTED_MODULE_3__["removeUserDataFromLocalStorage"])();
+      if (response.data.loggedOut) {
+        dispatch({
+          type: _reducers_authReducer__WEBPACK_IMPORTED_MODULE_2__["LOGOUT"]
+        });
+        Object(_helpers_authHelper__WEBPACK_IMPORTED_MODULE_3__["removeUserDataFromLocalStorage"])();
+      }
     });
   }
 
