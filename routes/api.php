@@ -17,3 +17,9 @@ Route::group(['namespace' => 'Auth', 'prefix' => 'auth'], function() {
     Route::post('/login', 'LoginController@login');
     Route::post('/logout', 'LoginController@logout');
 });
+
+Route::group(['middleware' => 'auth:api', 'namespace' => 'Api'], function() {
+    Route::prefix('/sheets')->group(function() {
+        Route::get('/', 'SheetController@index');
+    });
+});

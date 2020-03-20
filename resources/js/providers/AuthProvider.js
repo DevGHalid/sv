@@ -12,10 +12,10 @@ import {
 } from "../helpers/authHelper";
 
 export default function AuthProvider({ children }) {
-  const authContext = useContext(AuthContext);
-  const [auth, dispatch] = useReducer(authReducer, authContext);
+  const initialState = useContext(AuthContext);
+  const [auth, dispatch] = useReducer(authReducer, initialState);
 
-  function login(user) {
+  const login = user => {
     dispatch({
       type: LOGIN_REQUEST
     });
@@ -42,9 +42,9 @@ export default function AuthProvider({ children }) {
           error: error.response.data.errors
         });
       });
-  }
+  };
 
-  function logout() {
+  const logout = () => {
     axios.post(`${BASE_URL}/api/auth/logout`).then(response => {
       if (response.data.loggedOut) {
         dispatch({
@@ -54,7 +54,7 @@ export default function AuthProvider({ children }) {
         removeUserDataFromLocalStorage();
       }
     });
-  }
+  };
 
   return (
     <AuthContext.Provider value={{ auth, login, logout }}>

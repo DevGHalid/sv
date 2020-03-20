@@ -5,3 +5,5 @@ const SheetsContext = React.createContext({
   loading: false,
   error: null
 });
+
+export default SheetsContext;
