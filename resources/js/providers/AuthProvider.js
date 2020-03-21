@@ -34,6 +34,10 @@ export default function AuthProvider({ children }) {
           user
         });
 
+        axios.defaults.headers.common[
+          "Authorization"
+        ] = `Bearer ${user.accessToken}`;
+
         saveUserDataToLocalStorage(user);
       })
       .catch(error => {

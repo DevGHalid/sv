@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext, useMemo } from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import Master from "../../layouts/Master";
 import SheetsContext from "../../contexts/SheetsContext";
+import SheetItem from "./SheetItem";
 
 export default function Sheets() {
   const [tabs, setTabs] = useState([
@@ -53,7 +54,7 @@ export default function Sheets() {
 }
 
 function SheetsContent({ query }) {
-  const { sheets, fetchSheetsFromApi } = useContext(SheetsContext);
+  const { sheets, fetchSheetsFromApi, deleteSheet } = useContext(SheetsContext);
 
   useEffect(() => {
     fetchSheetsFromApi(query);
@@ -61,20 +62,14 @@ function SheetsContent({ query }) {
 
   return (
     <div className="sheets">
-      {sheets.allSheets.map(sheet => (
-        <SheetItem key={sheet.id} {...sheet} />
-      ))}
-    </div>
-  );
-}
-
-function SheetItem({ title, user = {} }) {
-  return (
-    <div className="sheet">
-      <div className="sheet-icon"></div>
-      <div className="sheet-content">
-        <div className="sheet-title">{title}</div>
-        <div className="sheet-user">Добавил: {user.name}</div>
+      <div className="sheets-content">
+        {sheets.allSheets.map(sheet => (
+          <SheetItem
+            key={sheet.id}
+            onDelete={() => deleteSheet(sheet.id)}
+            {...sheet}
+          />
+        ))}
       </div>
     </div>
   );

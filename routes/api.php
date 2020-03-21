@@ -21,5 +21,11 @@ Route::group(['namespace' => 'Auth', 'prefix' => 'auth'], function() {
 Route::group(['middleware' => 'auth:api', 'namespace' => 'Api'], function() {
     Route::prefix('/sheets')->group(function() {
         Route::get('/', 'SheetController@index');
+        Route::get('/{sheet}', 'SheetController@show');
+        Route::delete('/{sheet}/delete', 'SheetController@destroy');
+    });
+
+    Route::prefix('/form-elements')->group(function() {
+        Route::get('/', 'FormElementController@index');
     });
 });

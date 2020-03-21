@@ -6,11 +6,15 @@
 
         <title>app</title>
 
+        <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+
         <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
     </head>
     <body>
 
         <div id="root"></div>
+
+        <div id="modal-root"></div>
 
         <script>
             var BASE_URL = "{{ url('/') }}";

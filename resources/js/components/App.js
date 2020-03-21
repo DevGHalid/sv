@@ -7,6 +7,10 @@ import Home from "../pages/Home";
 import Sheets from "../pages/sheets/Sheets";
 import SheetsProvider from "../providers/SheetsProvider";
 
+import Sheet from "../pages/sheet/Sheet";
+import SheetProvider from "../providers/SheetProvider";
+import FormElementsProvider from "../providers/FormElementsProvider";
+
 export default function App() {
   const history = useHistory();
   const { auth } = useContext(AuthContext);
@@ -22,11 +26,22 @@ export default function App() {
       <Route path="/home" component={Home} exact />
       <Route path="/login" component={Login} />
       <Route
+        exact
         path="/sheets"
         render={() => (
           <SheetsProvider>
             <Sheets />
           </SheetsProvider>
+        )}
+      />
+      <Route
+        path="/sheets/:id"
+        render={() => (
+          <SheetProvider>
+            <FormElementsProvider>
+              <Sheet />
+            </FormElementsProvider>
+          </SheetProvider>
         )}
       />
       <Redirect to="/home" />

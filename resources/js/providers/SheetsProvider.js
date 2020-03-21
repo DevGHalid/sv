@@ -3,7 +3,8 @@ import SheetsContext from "../contexts/SheetsContext";
 import sheetsReducer, {
   SHEETS_REQUEST,
   SHEETS_SUCCESS,
-  SHEETS_FAIL
+  SHEETS_FAIL,
+  DELETE_SHEET
 } from "../reducers/sheetsReducer";
 
 export default function SheetsProvider({ children }) {
@@ -31,8 +32,21 @@ export default function SheetsProvider({ children }) {
       });
   };
 
+  const deleteSheet = sheetId => {
+    axios
+      .delete(`${BASE_URL}/api/sheets/${sheetId}/delete`)
+      .then(({ data }) => {
+        if (data.deleted) {
+          dispatch({
+            type: DELETE_SHEET,
+            sheetId
+          });
+        }
+      });
+  };
+
   return (
-    <SheetsContext.Provider value={{ sheets, fetchSheetsFromApi }}>
+    <SheetsContext.Provider value={{ sheets, fetchSheetsFromApi, deleteSheet }}>
       {children}
     </SheetsContext.Provider>
   );
