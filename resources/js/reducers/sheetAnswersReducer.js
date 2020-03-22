@@ -3,7 +3,8 @@ export const SHEET_ANSWERS_SUCCESS = "SHEET_ANSWERS_SUCCESS";
 export const SHEET_ANSWERS_FAIL = "SHEET_ANSWERS_FAIL";
 
 export const ADD_SHEET_ANSWER = "ADD_SHEET_ANSWER";
-export const UPDATE_INDEX_SHEET_ANSWER = "UPDATE_INDEX_SHEET_ANSWER";
+export const UPDATE_SHEET_ANSWER = "UPDATE_SHEET_ANSWER";
+export const UPDATE_INDEX_TO_SHEET_ANSWER = "UPDATE_INDEX_TO_SHEET_ANSWER";
 
 export default function sheetAnswersReducer(state, action) {
   switch (action.type) {
@@ -56,7 +57,19 @@ export default function sheetAnswersReducer(state, action) {
         answers: newAnswers
       };
 
-    case UPDATE_INDEX_SHEET_ANSWER:
+    case UPDATE_SHEET_ANSWER:
+      return {
+        ...state,
+        answers: state.answers.map(answer => {
+          if (answer.id === action.answer.id) {
+            return { ...answer, ...action.answer };
+          }
+
+          return { ...answer };
+        })
+      };
+
+    case UPDATE_INDEX_TO_SHEET_ANSWER:
       const oldAnswer = state.answers.find(
         answer => answer.index === action.payload.oldIndex
       );

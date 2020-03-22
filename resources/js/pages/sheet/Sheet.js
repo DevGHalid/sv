@@ -2,10 +2,9 @@ import React, { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Container, Draggable } from "react-smooth-dnd";
 import SheetContext from "../../contexts/SheetContext";
-import SheetAnswers from './SheetAnswers';
-import SheetFormElements from './SheetFormElements';
+import SheetAnswers from "./SheetAnswers";
+import SheetFormElements from "./SheetFormElements";
 import Master from "../../layouts/Master";
-import Loader from '../../layouts/Loader';
 
 export default function Sheet() {
   const { id } = useParams();
@@ -17,7 +16,11 @@ export default function Sheet() {
 
   return (
     <Master>
-      {sheet.loading ?  <Loader /> : sheet.sheetItem && <SheetContent sheetItem={sheet.sheetItem}/>}
+      {sheet.loading ? (
+        <div className="loader w-100 mt-9 pt-9" />
+      ) : (
+        sheet.sheetItem && <SheetContent sheetItem={sheet.sheetItem} />
+      )}
     </Master>
   );
 }
@@ -39,5 +42,5 @@ function SheetContent({ sheetItem }) {
         </div>
       </div>
     </div>
-  )
+  );
 }

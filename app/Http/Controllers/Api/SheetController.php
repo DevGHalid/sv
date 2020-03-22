@@ -97,11 +97,11 @@ class SheetController extends Controller
       );
     }
 
-  /**
-   * @param \App\Models\Sheet $sheet
-   * @param \Illuminate\Http\Request $request
-   * @return array
-   */
+    /**
+     * @param \App\Models\Sheet $sheet
+     * @param \Illuminate\Http\Request $request
+     * @return array
+     */
     public function updateIndexAnswer(Sheet $sheet, Request $request)
     {
       Validator::make($request->all(), array(

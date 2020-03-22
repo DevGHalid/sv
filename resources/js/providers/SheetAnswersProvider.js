@@ -5,7 +5,8 @@ import sheetAnswersReducer, {
   SHEET_ANSWERS_SUCCESS,
   SHEET_ANSWERS_FAIL,
   ADD_SHEET_ANSWER,
-  UPDATE_INDEX_SHEET_ANSWER
+  UPDATE_INDEX_TO_SHEET_ANSWER,
+  UPDATE_SHEET_ANSWER
 } from "../reducers/sheetAnswersReducer";
 
 export default function SheetAnswersProvider({ children }) {
@@ -49,25 +50,42 @@ export default function SheetAnswersProvider({ children }) {
   };
 
   const addSheetAnswerToSheet = (elementId, attrs, index, sheetId) => {
-    sheetAnswersRequest();
+    return new Promise((resolve, reject) => {
+      sheetAnswersRequest();
 
-    axios
-      .post(`${BASE_URL}/api/sheets/${sheetId}/answers/add`, {
-        form_element_id: elementId,
-        attributes: attrs,
-        index
-      })
-      .then(({ data }) => {
-        dispatch({
-          type: ADD_SHEET_ANSWER,
-          answer: data
-        });
+      axios
+        .post(`${BASE_URL}/api/sheets/${sheetId}/answers/add`, {
+          form_element_id: elementId,
+          attributes: attrs,
+          index
+        })
+        .then(response => {
+          dispatch({
+            type: ADD_SHEET_ANSWER,
+            answer: response.data
+          });
+
+          resolve(response);
+        })
+        .catch(reject);
+    });
+  };
+
+  const updateSheetAnswer = async (sheetAnswer, answerId) => {
+    try {
+      const { data } = await axios.put(
+        `${BASE_URL}/api/sheet-answers/${answerId}`,
+        sheetAnswer
+      );
+
+      dispatch({
+        type: UPDATE_SHEET_ANSWER,
+        answer: data
       });
+    } catch (error) {}
   };
 
   const updateIndexToSheetAnswer = (oldIndex, newIndex, sheetId) => {
-    sheetAnswersRequest();
-
     axios
       .put(`${BASE_URL}/api/sheets/${sheetId}/answers/index`, {
         old_index: oldIndex,
@@ -76,7 +94,7 @@ export default function SheetAnswersProvider({ children }) {
       .then(({ data }) => {
         if (data.updated) {
           dispatch({
-            type: UPDATE_INDEX_SHEET_ANSWER,
+            type: UPDATE_INDEX_TO_SHEET_ANSWER,
             payload: {
               oldIndex,
               newIndex
@@ -92,6 +110,7 @@ export default function SheetAnswersProvider({ children }) {
         sheetAnswers,
         fetchSheetAnswersBySheetIdFromApi,
         addSheetAnswerToSheet,
+        updateSheetAnswer,
         updateIndexToSheetAnswer
       }}
     >

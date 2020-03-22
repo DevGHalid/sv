@@ -18510,6 +18510,7 @@ body {
 body {
   font-family: "Lato", sans-serif;
   background-color: #f8f9fa;
+  color: #454545;
 }
 
 .btn-outline-cyan {
@@ -18552,6 +18553,10 @@ body {
 
 .btn:not(:disabled):not(.disabled) {
   cursor: pointer;
+}
+
+.f-grow-1 {
+  flex-grow: 1;
 }
 
 .nav-tabs .nav-link.active {
@@ -18674,8 +18679,8 @@ body {
 }
 
 .list-group-element:hover {
-  padding-left: 17px;
-  border-left: 4px solid #17a2b8;
+  padding-left: 15px;
+  border-left: 6px solid #17a2b8;
 }
 
 .list-group-element:active {
@@ -18683,7 +18688,7 @@ body {
   background-color: #e9ecef;
 }
 
-.loader {
+.loader-center {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -18710,7 +18715,10 @@ body {
 .sheet-answer-header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 10px;
+}
+
+.sheet-answer-title {
+  font-weight: bold;
 }
 
 .sheet-answer-actions {
@@ -18733,5 +18741,47 @@ body {
 
 .sheet-answer-action:last-child {
   margin-right: 0;
+}
+
+.sheet-answer-option {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+  border-left: 6px solid #17a2b8;
+  padding: 5px 10px;
+  margin-bottom: 10px;
+}
+
+.sheet-answer-option-field {
+  background-color: #fff;
+  border: 1px solid #e7eaef;
+  border-radius: 3px;
+  min-width: 162px;
+  padding: 9px;
+  font-size: 13px;
+  line-height: 17px;
+  color: #414a5f;
+  outline: none;
+  width: 100%;
+}
+
+.sheet-answer-option-actions {
+  display: flex;
+}
+
+.sheet-answer-option-action {
+  margin-right: 10px;
+}
+
+.sheet-answer-option-action:last-child {
+  margin-right: 0;
+}
+
+.sheet-answer-option-action:hover {
+  color: #ccc;
+}
+
+.testttttt {
+  color: red;
 }
 
