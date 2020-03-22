@@ -20,9 +20,12 @@ Route::group(['namespace' => 'Auth', 'prefix' => 'auth'], function() {
 
 Route::group(['middleware' => 'auth:api', 'namespace' => 'Api'], function() {
     Route::prefix('/sheets')->group(function() {
-        Route::get('/', 'SheetController@index');
-        Route::get('/{sheet}', 'SheetController@show');
-        Route::delete('/{sheet}/delete', 'SheetController@destroy');
+      Route::get('/', 'SheetController@index');
+      Route::get('/{sheet}', 'SheetController@show');
+      Route::get('/{sheet}/answers', 'SheetController@answers');
+      Route::post('/{sheet}/answers/add', 'SheetController@addAnswer');
+      Route::put('/{sheet}/answers/index', 'SheetController@updateIndexAnswer');
+      Route::delete('/{sheet}/delete', 'SheetController@destroy');
     });
 
     Route::prefix('/form-elements')->group(function() {

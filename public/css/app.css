@@ -18571,7 +18571,7 @@ body {
 }
 
 .modal {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(65, 74, 95, 0.4);
   display: block;
 }
 
@@ -18656,5 +18656,82 @@ body {
 
 .sheet-action:hover {
   background-color: #e1dfdd;
+}
+
+.list-group-element {
+  width: 100%;
+  color: #495057;
+  display: flex !important;
+  align-items: center;
+  cursor: pointer;
+}
+
+.list-group-element:hover,
+.list-group-element:focus {
+  color: #495057;
+  text-decoration: none;
+  background-color: #f8f9fa;
+}
+
+.list-group-element:hover {
+  padding-left: 17px;
+  border-left: 4px solid #17a2b8;
+}
+
+.list-group-element:active {
+  color: #495057;
+  background-color: #e9ecef;
+}
+
+.loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.sheet-answer {
+  padding: 10px;
+}
+
+.sheet-answer:hover {
+  background-color: #ecedf1;
+}
+
+.sheet-answer:hover .sheet-answer-actions {
+  display: flex;
+  visibility: visible;
+}
+
+.sheet-answer-field {
+  width: 100%;
+}
+
+.sheet-answer-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.sheet-answer-actions {
+  display: flex;
+  visibility: hidden;
+}
+
+.sheet-answer-action {
+  margin-right: 5px;
+  padding: 5px;
+}
+
+.sheet-answer-action i {
+  cursor: pointer;
+}
+
+.sheet-answer-action:hover i {
+  color: #aaa;
+}
+
+.sheet-answer-action:last-child {
+  margin-right: 0;
 }
 

@@ -18,7 +18,8 @@ class SheetAnswer extends Model
         'attributes' => 'json'
     ];
 
-    public function elements() {
+    public function elements()
+    {
         return $this->belongsTo(FormElement::class, 'form_element_id');
     }
 }

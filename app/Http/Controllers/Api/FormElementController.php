@@ -8,8 +8,11 @@ use App\Models\FormElement;
 
 class FormElementController extends Controller
 {
-    public function index()
-    {
-        return FormElement::select('id', 'title', 'slug', 'icon', 'attributes')->get();
-    }
+  /**
+   * @return \Illuminate\Database\Eloquent\Collection
+   */
+  public function index()
+  {
+      return FormElement::select('id', 'title', 'slug', 'icon', 'attributes')->get();
+  }
 }

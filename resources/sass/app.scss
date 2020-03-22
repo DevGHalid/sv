@@ -70,7 +70,7 @@ body {
 }
 
 .modal {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(65, 74, 95, 0.4);
   display: block;
 }
 
@@ -154,6 +154,85 @@ body {
 
     &:hover {
       background-color: #e1dfdd;
+    }
+  }
+}
+
+.list-group-element {
+  width: 100%;
+  color: #495057;
+  display: flex !important;
+  align-items: center;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    color: #495057;
+    text-decoration: none;
+    background-color: #f8f9fa;
+  }
+
+  &:hover {
+    padding-left: 17px;
+    border-left: 4px solid #17a2b8;
+  }
+
+  &:active {
+    color: #495057;
+    background-color: #e9ecef;
+  }
+}
+
+.loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.sheet-answer {
+  padding: 10px;
+
+  &:hover {
+    background-color: #ecedf1;
+
+    .sheet-answer-actions {
+      display: flex;
+      visibility: visible;
+    }
+  }
+
+  &-field {
+    width: 100%;
+  }
+
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  &-actions {
+    display: flex;
+    visibility: hidden;
+  }
+
+  &-action {
+    margin-right: 5px;
+    padding: 5px;
+
+    i {
+      cursor: pointer;
+    }
+
+    &:hover {
+      i {
+        color: #aaa;
+      }
+    }
+
+    &:last-child {
+      margin-right: 0;
     }
   }
 }

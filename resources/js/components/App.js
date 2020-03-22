@@ -10,6 +10,7 @@ import SheetsProvider from "../providers/SheetsProvider";
 import Sheet from "../pages/sheet/Sheet";
 import SheetProvider from "../providers/SheetProvider";
 import FormElementsProvider from "../providers/FormElementsProvider";
+import SheetAnswersProvider from "../providers/SheetAnswersProvider";
 
 export default function App() {
   const history = useHistory();
@@ -38,9 +39,11 @@ export default function App() {
         path="/sheets/:id"
         render={() => (
           <SheetProvider>
-            <FormElementsProvider>
-              <Sheet />
-            </FormElementsProvider>
+            <SheetAnswersProvider>
+              <FormElementsProvider>
+                <Sheet />
+              </FormElementsProvider>
+            </SheetAnswersProvider>
           </SheetProvider>
         )}
       />

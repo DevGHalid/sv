@@ -21,7 +21,7 @@ export default function sheetReducer(state, action) {
       return {
         ...state,
         loading: false,
-        error: action.errork
+        error: action.error
       };
 
     default:
