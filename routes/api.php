@@ -32,7 +32,8 @@ Route::group(['middleware' => 'auth:api', 'namespace' => 'Api'], function() {
     });
 
     Route::prefix('/sheet-answers')->group(function() {
-      Route::put('/{answer}', 'SheetAnswerController@update');
+      Route::put('/', 'SheetAnswerController@update');
+      Route::put('/{answer}/attributes', 'SheetAnswerController@updateAttributes');
     });
 
     Route::prefix('/form-elements')->group(function() {

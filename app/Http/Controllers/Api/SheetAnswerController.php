@@ -8,7 +8,27 @@ use App\Models\SheetAnswer;
 
 class SheetAnswerController extends Controller
 {
-    public function update(SheetAnswer $answer, Request $request)
+    /**
+     * @param \Illuminate\Http\Request
+     * @return array
+     */
+    public function update(Request $request)
+    {
+        foreach ($request->answers as $answer) {
+            SheetAnswer::whereId($answer['id'])->update([
+                'attributes' => $answer['attributes']
+            ]);
+        };
+
+        return array('updated' => true);
+    }
+
+    /**
+     * @param \App\Models\SheetAnswer
+     * @param \Illuminate\Http\Request
+     * @return array
+     */
+    public function updateAttributes(SheetAnswer $answer, Request $request)
     {
         $answer->attributes = $request['attributes'];
         $answer->save();

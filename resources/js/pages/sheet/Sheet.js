@@ -33,11 +33,17 @@ function SheetContent({ sheetItem }) {
           <SheetAnswers sheetItemId={sheetItem.id} />
         </div>
         <div className="col-md-4">
-          <h4 className="d-flex justify-content-between align-items-center mb-3">
-            <span className="text-muted">Основные поля</span>
-          </h4>
-          <div className="list-group">
-            <SheetFormElements />
+          <div className="sheet-elements">
+            <h4 className="d-flex justify-content-between align-items-center mb-3">
+              <span className="text-muted">Основные поля</span>
+            </h4>
+            <div className="list-group">
+              <SheetFormElements />
+              <div className="list-group-item list-group-element mt-4">
+                <i className="fe fe-edit-2 mr-3"></i>
+                Конструктор
+              </div>
+            </div>
           </div>
         </div>
       </div>

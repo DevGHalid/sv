@@ -3,6 +3,7 @@ import React, { useState } from "react";
 export default function SheetAnswerFiled({
   type,
   attributes: attrs,
+  onChangeSheetAnswer,
   onEditSheetAnswer,
   onRemoveSheetAnswer
 }) {
@@ -31,7 +32,12 @@ export default function SheetAnswerFiled({
             type="text"
             className="form-control"
             placeholder={attrs.placeholder}
+            value={attrs.value || ""}
+            onChange={onChangeSheetAnswer}
           />
+          {attrs.comment && (
+            <SheetAnswerComment>{attrs.comment}</SheetAnswerComment>
+          )}
         </div>
       );
     case "answer_long_text":
@@ -58,7 +64,12 @@ export default function SheetAnswerFiled({
             type="text"
             className="form-control"
             placeholder={attrs.placeholder}
+            value={attrs.value || ""}
+            onChange={onChangeSheetAnswer}
           />
+          {attrs.comment && (
+            <SheetAnswerComment>{attrs.comment}</SheetAnswerComment>
+          )}
         </div>
       );
     case "email":
@@ -85,7 +96,12 @@ export default function SheetAnswerFiled({
             type="email"
             className="form-control"
             placeholder={attrs.placeholder}
+            value={attrs.value || ""}
+            onChange={onChangeSheetAnswer}
           />
+          {attrs.comment && (
+            <SheetAnswerComment>{attrs.comment}</SheetAnswerComment>
+          )}
         </div>
       );
     case "file":
@@ -103,6 +119,8 @@ export default function SheetAnswerFiled({
               <div
                 className="sheet-answer-action"
                 onClick={onRemoveSheetAnswer}
+                value={attrs.value || ""}
+                onChange={onChangeSheetAnswer}
               >
                 <i className="fe fe-trash-2" />
               </div>
@@ -113,6 +131,9 @@ export default function SheetAnswerFiled({
             className="form-control"
             placeholder={attrs.placeholder}
           />
+          {attrs.comment && (
+            <SheetAnswerComment>{attrs.comment}</SheetAnswerComment>
+          )}
         </div>
       );
     case "drop_down_list":
@@ -136,15 +157,18 @@ export default function SheetAnswerFiled({
             </div>
           </div>
           <select
-            type="text"
             className="form-control"
             placeholder={attrs.placeholder}
+            onChange={onChangeSheetAnswer}
           >
             {attrs.options &&
-              attrs.options.map(option => (
-                <option key={option}>{option}</option>
+              attrs.options.map((option, idx) => (
+                <option key={idx}>{option}</option>
               ))}
           </select>
+          {attrs.comment && (
+            <SheetAnswerComment>{attrs.comment}</SheetAnswerComment>
+          )}
         </div>
       );
     case "one_option":
@@ -171,7 +195,12 @@ export default function SheetAnswerFiled({
             type="text"
             className="form-control"
             placeholder={attrs.placeholder}
+            value={attrs.value || ""}
+            onChange={onChangeSheetAnswer}
           />
+          {attrs.comment && (
+            <SheetAnswerComment>{attrs.comment}</SheetAnswerComment>
+          )}
         </div>
       );
     case "several_variants":
@@ -198,10 +227,19 @@ export default function SheetAnswerFiled({
             type="text"
             className="form-control"
             placeholder={attrs.placeholder}
+            value={attrs.value || ""}
+            onChange={onChangeSheetAnswer}
           />
+          {attrs.comment && (
+            <SheetAnswerComment>{attrs.comment}</SheetAnswerComment>
+          )}
         </div>
       );
     default:
       return <div />;
   }
+}
+
+function SheetAnswerComment({ children }) {
+  return <small>{children}</small>;
 }

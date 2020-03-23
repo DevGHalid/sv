@@ -16,42 +16,43 @@ export default function SheetAnswersProvider({ children }) {
     initialState
   );
 
-  const sheetAnswersRequest = () => {
+  const setSheetAnswersRequest = () => {
     dispatch({
       type: SHEET_ANSWERS_REQUEST
     });
   };
 
-  const sheetAnswersSuccess = answers => {
+  const setSheetAnswersSuccess = answers => {
     dispatch({
       type: SHEET_ANSWERS_SUCCESS,
       answers
     });
   };
 
-  const sheetAnswersFail = error => {
+  const setSheetAnswersFail = error => {
     dispatch({
       type: SHEET_ANSWERS_FAIL,
       error
     });
   };
 
-  const fetchSheetAnswersBySheetIdFromApi = sheetId => {
-    sheetAnswersRequest();
+  const fetchSheetAnswersBySheetIdFromApi = async sheetId => {
+    setSheetAnswersRequest();
 
-    axios
-      .get(`${BASE_URL}/api/sheets/${sheetId}/answers`)
-      .then(({ data }) => {
-        sheetAnswersSuccess(data);
-      })
-      .catch(error => {
-        sheetAnswersFail(error);
-      });
+    try {
+      const { data } = await axios.get(
+        `${BASE_URL}/api/sheets/${sheetId}/answers`
+      );
+
+      setSheetAnswersSuccess(data);
+    } catch (erro) {
+      setSheetAnswersFail(error);
+    }
   };
 
   const addSheetAnswerToSheet = (elementId, attrs, index, sheetId) => {
     return new Promise((resolve, reject) => {
-      sheetAnswersRequest();
+      setSheetAnswersRequest();
 
       axios
         .post(`${BASE_URL}/api/sheets/${sheetId}/answers/add`, {
@@ -71,10 +72,16 @@ export default function SheetAnswersProvider({ children }) {
     });
   };
 
-  const updateSheetAnswer = async (sheetAnswer, answerId) => {
+  const updateAllSheetAnswers = async sheetAnswers => {
+    try {
+      return await axios.put(`${BASE_URL}/api/sheet-answers`, sheetAnswers);
+    } catch (error) {}
+  };
+
+  const updateAttributesToSheetAnswer = async (sheetAnswer, answerId) => {
     try {
       const { data } = await axios.put(
-        `${BASE_URL}/api/sheet-answers/${answerId}`,
+        `${BASE_URL}/api/sheet-answers/${answerId}/attributes`,
         sheetAnswer
       );
 
@@ -85,32 +92,37 @@ export default function SheetAnswersProvider({ children }) {
     } catch (error) {}
   };
 
-  const updateIndexToSheetAnswer = (oldIndex, newIndex, sheetId) => {
-    axios
-      .put(`${BASE_URL}/api/sheets/${sheetId}/answers/index`, {
-        old_index: oldIndex,
-        new_index: newIndex
-      })
-      .then(({ data }) => {
-        if (data.updated) {
-          dispatch({
-            type: UPDATE_INDEX_TO_SHEET_ANSWER,
-            payload: {
-              oldIndex,
-              newIndex
-            }
-          });
+  const updateIndexToSheetAnswer = async (oldIndex, newIndex, sheetId) => {
+    try {
+      const { data } = await axios.put(
+        `${BASE_URL}/api/sheets/${sheetId}/answers/index`,
+        {
+          old_index: oldIndex,
+          new_index: newIndex
         }
-      });
+      );
+
+      if (data.updated) {
+        dispatch({
+          type: UPDATE_INDEX_TO_SHEET_ANSWER,
+          payload: {
+            oldIndex,
+            newIndex
+          }
+        });
+      }
+    } catch (error) {}
   };
 
   return (
     <SheetAnswersContext.Provider
       value={{
         sheetAnswers,
+        setSheetAnswersSuccess,
         fetchSheetAnswersBySheetIdFromApi,
         addSheetAnswerToSheet,
-        updateSheetAnswer,
+        updateAllSheetAnswers,
+        updateAttributesToSheetAnswer,
         updateIndexToSheetAnswer
       }}
     >

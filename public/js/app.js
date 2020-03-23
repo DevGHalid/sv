@@ -61369,418 +61369,33 @@ function SheetContent(_ref) {
     sheetItemId: sheetItem.id
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-md-4"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "sheet-elements"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
     className: "d-flex justify-content-between align-items-center mb-3"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "text-muted"
   }, "\u041E\u0441\u043D\u043E\u0432\u043D\u044B\u0435 \u043F\u043E\u043B\u044F")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "list-group"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SheetFormElements__WEBPACK_IMPORTED_MODULE_5__["default"], null)))));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SheetFormElements__WEBPACK_IMPORTED_MODULE_5__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "list-group-item list-group-element mt-4"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fe fe-edit-2 mr-3"
+  }), "\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440"))))));
 }
 
 /***/ }),
 
-/***/ "./resources/js/pages/sheet/SheetAnswerField.js":
-/*!******************************************************!*\
-  !*** ./resources/js/pages/sheet/SheetAnswerField.js ***!
-  \******************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return SheetAnswerFiled; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-
-function SheetAnswerFiled(_ref) {
-  var type = _ref.type,
-      attrs = _ref.attributes,
-      onEditSheetAnswer = _ref.onEditSheetAnswer,
-      onRemoveSheetAnswer = _ref.onRemoveSheetAnswer;
-
-  switch (type) {
-    case "answer_short_text":
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-field"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-header"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-title"
-      }, attrs.label), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-actions"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-action",
-        onClick: onEditSheetAnswer
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fe fe-edit-2"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-action"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fe fe-copy"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-action",
-        onClick: onRemoveSheetAnswer
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fe fe-trash-2"
-      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "text",
-        className: "form-control",
-        placeholder: attrs.placeholder
-      }));
-
-    case "answer_long_text":
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-field"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-header"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-title"
-      }, attrs.label), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-actions"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-action",
-        onClick: onEditSheetAnswer
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fe fe-edit-2"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-action"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fe fe-copy"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-action",
-        onClick: onRemoveSheetAnswer
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fe fe-trash-2"
-      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
-        type: "text",
-        className: "form-control",
-        placeholder: attrs.placeholder
-      }));
-
-    case "email":
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-field"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-header"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-title"
-      }, attrs.label), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-actions"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-action",
-        onClick: onEditSheetAnswer
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fe fe-edit-2"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-action"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fe fe-copy"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-action",
-        onClick: onRemoveSheetAnswer
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fe fe-trash-2"
-      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "email",
-        className: "form-control",
-        placeholder: attrs.placeholder
-      }));
-
-    case "file":
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-field"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-header"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-title"
-      }, attrs.label), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-actions"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-action",
-        onClick: onEditSheetAnswer
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fe fe-edit-2"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-action"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fe fe-copy"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-action",
-        onClick: onRemoveSheetAnswer
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fe fe-trash-2"
-      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "file",
-        className: "form-control",
-        placeholder: attrs.placeholder
-      }));
-
-    case "drop_down_list":
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-field"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-header"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-title"
-      }, attrs.label), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-actions"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-action",
-        onClick: onEditSheetAnswer
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fe fe-edit-2"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-action"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fe fe-copy"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-action",
-        onClick: onRemoveSheetAnswer
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fe fe-trash-2"
-      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-        type: "text",
-        className: "form-control",
-        placeholder: attrs.placeholder
-      }, attrs.options && attrs.options.map(function (option) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-          key: option
-        }, option);
-      })));
-
-    case "one_option":
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-field"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-header"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-title"
-      }, attrs.label), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-actions"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-action",
-        onClick: onEditSheetAnswer
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fe fe-edit-2"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-action"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fe fe-copy"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-action",
-        onClick: onRemoveSheetAnswer
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fe fe-trash-2"
-      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "text",
-        className: "form-control",
-        placeholder: attrs.placeholder
-      }));
-
-    case "several_variants":
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-field"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-header"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-title"
-      }, attrs.label), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-actions"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-action",
-        onClick: onEditSheetAnswer
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fe fe-edit-2"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-action"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fe fe-copy"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-action",
-        onClick: onRemoveSheetAnswer
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fe fe-trash-2"
-      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "text",
-        className: "form-control",
-        placeholder: attrs.placeholder
-      }));
-
-    default:
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
-  }
-}
-
-/***/ }),
-
-/***/ "./resources/js/pages/sheet/SheetAnswers.js":
-/*!**************************************************!*\
-  !*** ./resources/js/pages/sheet/SheetAnswers.js ***!
-  \**************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return SheetAnswers; });
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_smooth_dnd__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-smooth-dnd */ "./node_modules/react-smooth-dnd/dist/index.js");
-/* harmony import */ var react_smooth_dnd__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_smooth_dnd__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _SheetEditAnswer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./SheetEditAnswer */ "./resources/js/pages/sheet/SheetEditAnswer.js");
-/* harmony import */ var _SheetAnswerField__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./SheetAnswerField */ "./resources/js/pages/sheet/SheetAnswerField.js");
-/* harmony import */ var _contexts_SheetAnswersContext__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../contexts/SheetAnswersContext */ "./resources/js/contexts/SheetAnswersContext.js");
-
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
-
-function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-
-
-
-
-
-function SheetAnswers(_ref) {
-  var sheetItemId = _ref.sheetItemId;
-
-  var _useContext = Object(react__WEBPACK_IMPORTED_MODULE_1__["useContext"])(_contexts_SheetAnswersContext__WEBPACK_IMPORTED_MODULE_5__["default"]),
-      sheetAnswers = _useContext.sheetAnswers,
-      fetchSheetAnswersBySheetIdFromApi = _useContext.fetchSheetAnswersBySheetIdFromApi,
-      addSheetAnswerToSheet = _useContext.addSheetAnswerToSheet,
-      updateIndexToSheetAnswer = _useContext.updateIndexToSheetAnswer;
-
-  Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
-    fetchSheetAnswersBySheetIdFromApi(sheetItemId);
-  }, [sheetItemId]);
-
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(null),
-      _useState2 = _slicedToArray(_useState, 2),
-      editSheetAnswerId = _useState2[0],
-      setEditSheetAnswerId = _useState2[1];
-
-  return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, editSheetAnswerId !== null && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_SheetEditAnswer__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    sheetAnswerId: editSheetAnswerId,
-    onClose: function onClose() {
-      return setEditSheetAnswerId(null);
-    }
-  }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(SheetAnswersContainer, {
-    sheetItemId: sheetItemId,
-    answers: sheetAnswers.answers,
-    onAddSheetAnswerToSheet: addSheetAnswerToSheet,
-    onUpdateIndexToSheetAnswer: updateIndexToSheetAnswer,
-    onEditSheetAnswer: function onEditSheetAnswer(answerId) {
-      setEditSheetAnswerId(answerId);
-    }
-  }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
-    className: "btn btn-cyan btn-block mt-4"
-  }, "\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C"));
-}
-
-function SheetAnswersContainer(_ref2) {
-  var sheetItemId = _ref2.sheetItemId,
-      answers = _ref2.answers,
-      onAddSheetAnswerToSheet = _ref2.onAddSheetAnswerToSheet,
-      onUpdateIndexToSheetAnswer = _ref2.onUpdateIndexToSheetAnswer,
-      _onEditSheetAnswer = _ref2.onEditSheetAnswer;
-
-  var handleDropSheetAnswer = /*#__PURE__*/function () {
-    var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(_ref4) {
-      var addedIndex, removedIndex, payload, attributes, _ref5, data;
-
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              addedIndex = _ref4.addedIndex, removedIndex = _ref4.removedIndex, payload = _ref4.payload;
-
-              if (!(removedIndex === null && addedIndex !== null)) {
-                _context.next = 10;
-                break;
-              }
-
-              attributes = _objectSpread({}, payload.attributes, {
-                label: payload.title
-              });
-              _context.next = 5;
-              return onAddSheetAnswerToSheet(payload.id, attributes, addedIndex, sheetItemId);
-
-            case 5:
-              _ref5 = _context.sent;
-              data = _ref5.data;
-
-              _onEditSheetAnswer(data.id);
-
-              _context.next = 11;
-              break;
-
-            case 10:
-              if (removedIndex !== null && addedIndex !== null) {
-                onUpdateIndexToSheetAnswer(removedIndex, addedIndex, sheetItemId);
-              }
-
-            case 11:
-            case "end":
-              return _context.stop();
-          }
-        }
-      }, _callee);
-    }));
-
-    return function handleDropSheetAnswer(_x) {
-      return _ref3.apply(this, arguments);
-    };
-  }();
-
-  return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_smooth_dnd__WEBPACK_IMPORTED_MODULE_2__["Container"], {
-    groupName: "elements",
-    getChildPayload: function getChildPayload(i) {
-      return answers[i];
-    },
-    onDrop: handleDropSheetAnswer
-  }, answers.map(function (answer) {
-    return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_smooth_dnd__WEBPACK_IMPORTED_MODULE_2__["Draggable"], {
-      className: "sheet-answer",
-      key: answer.id
-    }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_SheetAnswerField__WEBPACK_IMPORTED_MODULE_4__["default"], {
-      type: answer.slug,
-      attributes: answer.attributes,
-      onEditSheetAnswer: function onEditSheetAnswer() {
-        return _onEditSheetAnswer(answer.id);
-      }
-    }));
-  }));
-}
-
-/***/ }),
-
-/***/ "./resources/js/pages/sheet/SheetEditAnswer.js":
+/***/ "./resources/js/pages/sheet/SheetAnswerEdit.js":
 /*!*****************************************************!*\
-  !*** ./resources/js/pages/sheet/SheetEditAnswer.js ***!
+  !*** ./resources/js/pages/sheet/SheetAnswerEdit.js ***!
   \*****************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return SheetEditAnswer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return SheetAnswerEdit; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_smooth_dnd__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-smooth-dnd */ "./node_modules/react-smooth-dnd/dist/index.js");
@@ -61788,12 +61403,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
 /* harmony import */ var _layouts_Modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../layouts/Modal */ "./resources/js/layouts/Modal.js");
 /* harmony import */ var _contexts_SheetAnswersContext__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../contexts/SheetAnswersContext */ "./resources/js/contexts/SheetAnswersContext.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
@@ -61802,33 +61411,37 @@ function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) ||
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
 
 
-function SheetEditAnswer(_ref) {
+
+function SheetAnswerEdit(_ref) {
   var type = _ref.type,
       sheetAnswerId = _ref.sheetAnswerId,
       onClose = _ref.onClose;
 
   var _useContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_SheetAnswersContext__WEBPACK_IMPORTED_MODULE_4__["default"]),
       sheetAnswers = _useContext.sheetAnswers,
-      updateSheetAnswer = _useContext.updateSheetAnswer;
+      updateAttributesToSheetAnswer = _useContext.updateAttributesToSheetAnswer;
 
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(function () {
+  var answer = Object(react__WEBPACK_IMPORTED_MODULE_0__["useMemo"])(function () {
     return sheetAnswers.answers.find(function (answer) {
       return answer.id === sheetAnswerId;
     });
-  }),
-      _useState2 = _slicedToArray(_useState, 2),
-      answer = _useState2[0],
-      setAnswer = _useState2[1];
+  }, [sheetAnswerId]);
 
   var handleSubmit = function handleSubmit(attributes) {
-    updateSheetAnswer({
+    updateAttributesToSheetAnswer({
       attributes: attributes
-    }, answer.id);
+    }, answer.id); // close model
+
     onClose();
   };
 
@@ -61840,8 +61453,9 @@ function SheetEditAnswer(_ref) {
   }, function (_ref2) {
     var values = _ref2.values,
         handleChange = _ref2.handleChange,
-        handleBlur = _ref2.handleBlur;
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["Form"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        handleBlur = _ref2.handleBlur,
+        handleSubmit = _ref2.handleSubmit;
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "form-group mb-3"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
       className: "form-label",
@@ -61881,59 +61495,547 @@ function SheetEditAnswer(_ref) {
       onBlur: handleBlur
     })), answer.slug === "drop_down_list" && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "mb-3"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "form-group mb-3"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-      className: "form-label",
-      id: "question"
-    }, "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u043D\u043E\u0432\u044B\u0435 \u0432\u0430\u0440\u0438\u0430\u043D\u0442\u044B \u043E\u0442\u0432\u0435\u0442\u0430"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "row gutters-xs"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "col"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-      className: "form-control",
-      type: "text"
-    })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "col col-auto"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-      className: "btn btn-cyan btn-icon"
-    }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_smooth_dnd__WEBPACK_IMPORTED_MODULE_1__["Container"], null, values.options.map(function (option, idx) {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_smooth_dnd__WEBPACK_IMPORTED_MODULE_1__["Draggable"], {
-        className: "list-group-item list-group-item-action sheet-answer-option",
-        key: option
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "text",
-        className: "sheet-answer-option-field mr-3",
-        onChange: function onChange(_ref3) {
-          var target = _ref3.target;
-          var newOptions = values.options.map(function (option, i) {
-            if (i === idx) {
-              return target.value;
-            }
-
-            return option;
-          }); // handleChange();
-
-          console.log(newOptions);
-        },
-        value: option
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-option-actions"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sheet-answer-option-action"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fe fe-trash"
-      }))));
-    }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(DropDownListAddItem, {
+      onAdd: function onAdd(value) {
+        handleChange({
+          type: "",
+          target: {
+            name: "options",
+            value: values.options.concat(value)
+          }
+        });
+      }
+    }), values.options && values.options.length ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(DropDownListItems, {
+      options: values.options,
+      onChange: function onChange(value) {
+        return handleChange({
+          type: "",
+          target: {
+            name: "options",
+            value: value
+          }
+        });
+      }
+    }) : ""), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "d-flex"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       className: "btn btn-outline-cyan f-grow-1 mr-2",
-      type: "submit"
+      onClick: handleSubmit
     }, "\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       className: "btn btn-secondary f-grow-1",
       onClick: onClose
     }, "\u041E\u0442\u043C\u0435\u043D\u0430")));
   })));
+}
+var DropDownListAddItem = Object(react__WEBPACK_IMPORTED_MODULE_0__["memo"])(function (_ref3) {
+  var onAdd = _ref3.onAdd;
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(""),
+      _useState2 = _slicedToArray(_useState, 2),
+      option = _useState2[0],
+      setOption = _useState2[1];
+
+  var handleChangeOption = function handleChangeOption(_ref4) {
+    var target = _ref4.target;
+    setOption(target.value);
+  };
+
+  var handleAddOption = function handleAddOption() {
+    onAdd(option); // clear filed
+
+    setOption("");
+  };
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "form-group mb-3"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    className: "form-label",
+    id: "question"
+  }, "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u043D\u043E\u0432\u044B\u0435 \u0432\u0430\u0440\u0438\u0430\u043D\u0442\u044B \u043E\u0442\u0432\u0435\u0442\u0430"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "row gutters-xs"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    className: "form-control",
+    type: "text",
+    value: option,
+    onChange: handleChangeOption
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col col-auto"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "btn btn-secondary",
+    disabled: !option,
+    onClick: handleAddOption
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fe fe-plus"
+  })))));
+} // (prevProps, nextProps) => prevProps.options === nextProps.options
+);
+var DropDownListItems = Object(react__WEBPACK_IMPORTED_MODULE_0__["memo"])(function (_ref5) {
+  var options = _ref5.options,
+      onChange = _ref5.onChange;
+
+  var handleDrop = function handleDrop(_ref6) {
+    var removedIndex = _ref6.removedIndex,
+        addedIndex = _ref6.addedIndex,
+        payload = _ref6.payload;
+    if (removedIndex === null && addedIndex === null) return null;
+    var newOptions = options.slice();
+    var itemToAdd = payload;
+
+    if (removedIndex !== null) {
+      itemToAdd = newOptions.splice(removedIndex, 1)[0];
+    }
+
+    if (addedIndex !== null) {
+      newOptions.splice(addedIndex, 0, itemToAdd);
+    }
+
+    onChange(newOptions);
+  };
+
+  var handleChangeOption = function handleChangeOption(idx) {
+    return function (_ref7) {
+      var target = _ref7.target;
+      var newOptions = options.slice();
+      newOptions[idx] = target.value;
+      onChange(newOptions);
+    };
+  };
+
+  var handleRemoveOption = function handleRemoveOption(idx) {
+    return function () {
+      var newOptions = options.filter(function (_, i) {
+        return idx !== i;
+      });
+      onChange(newOptions);
+    };
+  };
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_smooth_dnd__WEBPACK_IMPORTED_MODULE_1__["Container"], {
+    onDrop: handleDrop,
+    getChildPayload: function getChildPayload(i) {
+      return options[i];
+    }
+  }, options.map(function (option, idx) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_smooth_dnd__WEBPACK_IMPORTED_MODULE_1__["Draggable"], {
+      className: "list-group-item list-group-item-action sheet-answer-option",
+      key: idx
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      type: "text",
+      className: "sheet-answer-option-field mr-3",
+      value: option,
+      onChange: handleChangeOption(idx)
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "sheet-answer-option-actions"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "sheet-answer-option-action",
+      onClick: handleRemoveOption(idx)
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fe fe-trash"
+    }))));
+  }));
+}, function (prevProps, nextProps) {
+  return prevProps.options === nextProps.options;
+});
+
+/***/ }),
+
+/***/ "./resources/js/pages/sheet/SheetAnswerField.js":
+/*!******************************************************!*\
+  !*** ./resources/js/pages/sheet/SheetAnswerField.js ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return SheetAnswerFiled; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+function SheetAnswerFiled(_ref) {
+  var type = _ref.type,
+      attrs = _ref.attributes,
+      onChangeSheetAnswer = _ref.onChangeSheetAnswer,
+      onEditSheetAnswer = _ref.onEditSheetAnswer,
+      onRemoveSheetAnswer = _ref.onRemoveSheetAnswer;
+
+  switch (type) {
+    case "answer_short_text":
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sheet-answer-field"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sheet-answer-header"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sheet-answer-title"
+      }, attrs.label), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sheet-answer-actions"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sheet-answer-action",
+        onClick: onEditSheetAnswer
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fe fe-edit-2"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sheet-answer-action"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fe fe-copy"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sheet-answer-action",
+        onClick: onRemoveSheetAnswer
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fe fe-trash-2"
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        className: "form-control",
+        placeholder: attrs.placeholder,
+        value: attrs.value || "",
+        onChange: onChangeSheetAnswer
+      }), attrs.comment && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(SheetAnswerComment, null, attrs.comment));
+
+    case "answer_long_text":
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sheet-answer-field"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sheet-answer-header"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sheet-answer-title"
+      }, attrs.label), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sheet-answer-actions"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sheet-answer-action",
+        onClick: onEditSheetAnswer
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fe fe-edit-2"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sheet-answer-action"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fe fe-copy"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sheet-answer-action",
+        onClick: onRemoveSheetAnswer
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fe fe-trash-2"
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+        type: "text",
+        className: "form-control",
+        placeholder: attrs.placeholder,
+        value: attrs.value || "",
+        onChange: onChangeSheetAnswer
+      }), attrs.comment && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(SheetAnswerComment, null, attrs.comment));
+
+    case "email":
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sheet-answer-field"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sheet-answer-header"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sheet-answer-title"
+      }, attrs.label), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sheet-answer-actions"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sheet-answer-action",
+        onClick: onEditSheetAnswer
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fe fe-edit-2"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sheet-answer-action"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fe fe-copy"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sheet-answer-action",
+        onClick: onRemoveSheetAnswer
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fe fe-trash-2"
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "email",
+        className: "form-control",
+        placeholder: attrs.placeholder,
+        value: attrs.value || "",
+        onChange: onChangeSheetAnswer
+      }), attrs.comment && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(SheetAnswerComment, null, attrs.comment));
+
+    case "file":
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sheet-answer-field"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sheet-answer-header"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sheet-answer-title"
+      }, attrs.label), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sheet-answer-actions"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sheet-answer-action",
+        onClick: onEditSheetAnswer
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fe fe-edit-2"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sheet-answer-action"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fe fe-copy"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sheet-answer-action",
+        onClick: onRemoveSheetAnswer,
+        value: attrs.value || "",
+        onChange: onChangeSheetAnswer
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fe fe-trash-2"
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "file",
+        className: "form-control",
+        placeholder: attrs.placeholder
+      }), attrs.comment && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(SheetAnswerComment, null, attrs.comment));
+
+    case "drop_down_list":
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sheet-answer-field"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sheet-answer-header"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sheet-answer-title"
+      }, attrs.label), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sheet-answer-actions"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sheet-answer-action",
+        onClick: onEditSheetAnswer
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fe fe-edit-2"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sheet-answer-action"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fe fe-copy"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sheet-answer-action",
+        onClick: onRemoveSheetAnswer
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fe fe-trash-2"
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        className: "form-control",
+        placeholder: attrs.placeholder,
+        onChange: onChangeSheetAnswer
+      }, attrs.options && attrs.options.map(function (option, idx) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+          key: idx
+        }, option);
+      })), attrs.comment && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(SheetAnswerComment, null, attrs.comment));
+
+    case "one_option":
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sheet-answer-field"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sheet-answer-header"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sheet-answer-title"
+      }, attrs.label), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sheet-answer-actions"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sheet-answer-action",
+        onClick: onEditSheetAnswer
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fe fe-edit-2"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sheet-answer-action"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fe fe-copy"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sheet-answer-action",
+        onClick: onRemoveSheetAnswer
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fe fe-trash-2"
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        className: "form-control",
+        placeholder: attrs.placeholder,
+        value: attrs.value || "",
+        onChange: onChangeSheetAnswer
+      }), attrs.comment && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(SheetAnswerComment, null, attrs.comment));
+
+    case "several_variants":
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sheet-answer-field"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sheet-answer-header"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sheet-answer-title"
+      }, attrs.label), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sheet-answer-actions"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sheet-answer-action",
+        onClick: onEditSheetAnswer
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fe fe-edit-2"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sheet-answer-action"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fe fe-copy"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sheet-answer-action",
+        onClick: onRemoveSheetAnswer
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fe fe-trash-2"
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        className: "form-control",
+        placeholder: attrs.placeholder,
+        value: attrs.value || "",
+        onChange: onChangeSheetAnswer
+      }), attrs.comment && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(SheetAnswerComment, null, attrs.comment));
+
+    default:
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
+  }
+}
+
+function SheetAnswerComment(_ref2) {
+  var children = _ref2.children;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, children);
+}
+
+/***/ }),
+
+/***/ "./resources/js/pages/sheet/SheetAnswers.js":
+/*!**************************************************!*\
+  !*** ./resources/js/pages/sheet/SheetAnswers.js ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return SheetAnswers; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_smooth_dnd__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-smooth-dnd */ "./node_modules/react-smooth-dnd/dist/index.js");
+/* harmony import */ var react_smooth_dnd__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_smooth_dnd__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _contexts_SheetAnswersContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../contexts/SheetAnswersContext */ "./resources/js/contexts/SheetAnswersContext.js");
+/* harmony import */ var _SheetAnswerEdit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./SheetAnswerEdit */ "./resources/js/pages/sheet/SheetAnswerEdit.js");
+/* harmony import */ var _SheetAnswerField__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./SheetAnswerField */ "./resources/js/pages/sheet/SheetAnswerField.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+function SheetAnswers(_ref) {
+  var sheetItemId = _ref.sheetItemId;
+
+  var _useContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_SheetAnswersContext__WEBPACK_IMPORTED_MODULE_2__["default"]),
+      sheetAnswers = _useContext.sheetAnswers,
+      fetchSheetAnswersBySheetIdFromApi = _useContext.fetchSheetAnswersBySheetIdFromApi,
+      setSheetAnswersSuccess = _useContext.setSheetAnswersSuccess,
+      addSheetAnswerToSheet = _useContext.addSheetAnswerToSheet,
+      updateAllSheetAnswers = _useContext.updateAllSheetAnswers,
+      updateSheetAnswer = _useContext.updateSheetAnswer,
+      updateIndexToSheetAnswer = _useContext.updateIndexToSheetAnswer;
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    fetchSheetAnswersBySheetIdFromApi(sheetItemId);
+  }, [sheetItemId]);
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
+      _useState2 = _slicedToArray(_useState, 2),
+      selectedSheetAnswerIdForEdit = _useState2[0],
+      setSelectedSheetAnswerIdForEdit = _useState2[1];
+
+  var handleChangeSheetAnswers = function handleChangeSheetAnswers(idx) {
+    return function (_ref2) {
+      var target = _ref2.target;
+      var answers = sheetAnswers.answers.slice();
+      var attributes = answers[idx].attributes;
+      attributes.value = target.value;
+      setSheetAnswersSuccess(answers);
+    };
+  };
+
+  var handleSaveContentSheetAnswers = function handleSaveContentSheetAnswers() {
+    updateAllSheetAnswers({
+      answers: sheetAnswers.answers
+    }).then(function (response) {
+      if (response.data.updated) {
+        alert("Успешно сохранено");
+      }
+    });
+  };
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, selectedSheetAnswerIdForEdit !== null && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SheetAnswerEdit__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    sheetAnswerId: selectedSheetAnswerIdForEdit,
+    onClose: function onClose() {
+      return setSelectedSheetAnswerIdForEdit(null);
+    }
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(SheetAnswersContainer, {
+    sheetItemId: sheetItemId,
+    answers: sheetAnswers.answers,
+    onAddSheetAnswerToSheet: addSheetAnswerToSheet,
+    onUpdateIndexToSheetAnswer: updateIndexToSheetAnswer,
+    onChangeSheetAnswers: handleChangeSheetAnswers,
+    onEditSheetAnswer: function onEditSheetAnswer(answerId) {
+      setSelectedSheetAnswerIdForEdit(answerId);
+    }
+  }), sheetAnswers.answers.length !== 0 && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "btn btn-cyan btn-block mt-4",
+    onClick: handleSaveContentSheetAnswers
+  }, "\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C"));
+}
+
+function SheetAnswersContainer(_ref3) {
+  var sheetItemId = _ref3.sheetItemId,
+      answers = _ref3.answers,
+      onAddSheetAnswerToSheet = _ref3.onAddSheetAnswerToSheet,
+      onUpdateIndexToSheetAnswer = _ref3.onUpdateIndexToSheetAnswer,
+      onChangeSheetAnswers = _ref3.onChangeSheetAnswers,
+      _onEditSheetAnswer = _ref3.onEditSheetAnswer;
+
+  var handleDropSheetAnswer = function handleDropSheetAnswer(_ref4) {
+    var addedIndex = _ref4.addedIndex,
+        removedIndex = _ref4.removedIndex,
+        payload = _ref4.payload;
+
+    if (removedIndex === null && addedIndex !== null) {
+      var attributes = _objectSpread({}, payload.attributes, {
+        label: payload.title
+      });
+
+      onAddSheetAnswerToSheet(payload.id, attributes, addedIndex, sheetItemId).then(function (_ref5) {
+        var data = _ref5.data;
+        return _onEditSheetAnswer(data.id);
+      });
+    } else if (removedIndex !== null && addedIndex !== null) {
+      onUpdateIndexToSheetAnswer(removedIndex, addedIndex, sheetItemId);
+    }
+  };
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_smooth_dnd__WEBPACK_IMPORTED_MODULE_1__["Container"], {
+    groupName: "elements",
+    getChildPayload: function getChildPayload(i) {
+      return answers[i];
+    },
+    onDrop: handleDropSheetAnswer
+  }, answers.map(function (answer, idx) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_smooth_dnd__WEBPACK_IMPORTED_MODULE_1__["Draggable"], {
+      className: "sheet-answer",
+      key: answer.id
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SheetAnswerField__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      type: answer.slug,
+      attributes: answer.attributes,
+      onChangeSheetAnswer: onChangeSheetAnswers(idx),
+      onEditSheetAnswer: function onEditSheetAnswer() {
+        return _onEditSheetAnswer(answer.id);
+      }
+    }));
+  }));
 }
 
 /***/ }),
@@ -62347,39 +62449,67 @@ function SheetAnswersProvider(_ref) {
       sheetAnswers = _useReducer2[0],
       dispatch = _useReducer2[1];
 
-  var sheetAnswersRequest = function sheetAnswersRequest() {
+  var setSheetAnswersRequest = function setSheetAnswersRequest() {
     dispatch({
       type: _reducers_sheetAnswersReducer__WEBPACK_IMPORTED_MODULE_3__["SHEET_ANSWERS_REQUEST"]
     });
   };
 
-  var sheetAnswersSuccess = function sheetAnswersSuccess(answers) {
+  var setSheetAnswersSuccess = function setSheetAnswersSuccess(answers) {
     dispatch({
       type: _reducers_sheetAnswersReducer__WEBPACK_IMPORTED_MODULE_3__["SHEET_ANSWERS_SUCCESS"],
       answers: answers
     });
   };
 
-  var sheetAnswersFail = function sheetAnswersFail(error) {
+  var setSheetAnswersFail = function setSheetAnswersFail(error) {
     dispatch({
       type: _reducers_sheetAnswersReducer__WEBPACK_IMPORTED_MODULE_3__["SHEET_ANSWERS_FAIL"],
       error: error
     });
   };
 
-  var fetchSheetAnswersBySheetIdFromApi = function fetchSheetAnswersBySheetIdFromApi(sheetId) {
-    sheetAnswersRequest();
-    axios.get("".concat(BASE_URL, "/api/sheets/").concat(sheetId, "/answers")).then(function (_ref2) {
-      var data = _ref2.data;
-      sheetAnswersSuccess(data);
-    })["catch"](function (error) {
-      sheetAnswersFail(error);
-    });
-  };
+  var fetchSheetAnswersBySheetIdFromApi = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(sheetId) {
+      var _ref3, data;
+
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              setSheetAnswersRequest();
+              _context.prev = 1;
+              _context.next = 4;
+              return axios.get("".concat(BASE_URL, "/api/sheets/").concat(sheetId, "/answers"));
+
+            case 4:
+              _ref3 = _context.sent;
+              data = _ref3.data;
+              setSheetAnswersSuccess(data);
+              _context.next = 12;
+              break;
+
+            case 9:
+              _context.prev = 9;
+              _context.t0 = _context["catch"](1);
+              setSheetAnswersFail(error);
+
+            case 12:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, null, [[1, 9]]);
+    }));
+
+    return function fetchSheetAnswersBySheetIdFromApi(_x) {
+      return _ref2.apply(this, arguments);
+    };
+  }();
 
   var addSheetAnswerToSheet = function addSheetAnswerToSheet(elementId, attrs, index, sheetId) {
     return new Promise(function (resolve, reject) {
-      sheetAnswersRequest();
+      setSheetAnswersRequest();
       axios.post("".concat(BASE_URL, "/api/sheets/").concat(sheetId, "/answers/add"), {
         form_element_id: elementId,
         attributes: attrs,
@@ -62394,70 +62524,132 @@ function SheetAnswersProvider(_ref) {
     });
   };
 
-  var updateSheetAnswer = /*#__PURE__*/function () {
-    var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(sheetAnswer, answerId) {
-      var _ref4, data;
-
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+  var updateAllSheetAnswers = /*#__PURE__*/function () {
+    var _ref4 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(sheetAnswers) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
         while (1) {
-          switch (_context.prev = _context.next) {
+          switch (_context2.prev = _context2.next) {
             case 0:
-              _context.prev = 0;
-              _context.next = 3;
-              return axios.put("".concat(BASE_URL, "/api/sheet-answers/").concat(answerId), sheetAnswer);
+              _context2.prev = 0;
+              _context2.next = 3;
+              return axios.put("".concat(BASE_URL, "/api/sheet-answers"), sheetAnswers);
 
             case 3:
-              _ref4 = _context.sent;
-              data = _ref4.data;
+              return _context2.abrupt("return", _context2.sent);
+
+            case 6:
+              _context2.prev = 6;
+              _context2.t0 = _context2["catch"](0);
+
+            case 8:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2, null, [[0, 6]]);
+    }));
+
+    return function updateAllSheetAnswers(_x2) {
+      return _ref4.apply(this, arguments);
+    };
+  }();
+
+  var updateAttributesToSheetAnswer = /*#__PURE__*/function () {
+    var _ref5 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(sheetAnswer, answerId) {
+      var _ref6, data;
+
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.prev = 0;
+              _context3.next = 3;
+              return axios.put("".concat(BASE_URL, "/api/sheet-answers/").concat(answerId, "/attributes"), sheetAnswer);
+
+            case 3:
+              _ref6 = _context3.sent;
+              data = _ref6.data;
               dispatch({
                 type: _reducers_sheetAnswersReducer__WEBPACK_IMPORTED_MODULE_3__["UPDATE_SHEET_ANSWER"],
                 answer: data
               });
-              _context.next = 10;
+              _context3.next = 10;
               break;
 
             case 8:
-              _context.prev = 8;
-              _context.t0 = _context["catch"](0);
+              _context3.prev = 8;
+              _context3.t0 = _context3["catch"](0);
 
             case 10:
             case "end":
-              return _context.stop();
+              return _context3.stop();
           }
         }
-      }, _callee, null, [[0, 8]]);
+      }, _callee3, null, [[0, 8]]);
     }));
 
-    return function updateSheetAnswer(_x, _x2) {
-      return _ref3.apply(this, arguments);
+    return function updateAttributesToSheetAnswer(_x3, _x4) {
+      return _ref5.apply(this, arguments);
     };
   }();
 
-  var updateIndexToSheetAnswer = function updateIndexToSheetAnswer(oldIndex, newIndex, sheetId) {
-    axios.put("".concat(BASE_URL, "/api/sheets/").concat(sheetId, "/answers/index"), {
-      old_index: oldIndex,
-      new_index: newIndex
-    }).then(function (_ref5) {
-      var data = _ref5.data;
+  var updateIndexToSheetAnswer = /*#__PURE__*/function () {
+    var _ref7 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(oldIndex, newIndex, sheetId) {
+      var _ref8, data;
 
-      if (data.updated) {
-        dispatch({
-          type: _reducers_sheetAnswersReducer__WEBPACK_IMPORTED_MODULE_3__["UPDATE_INDEX_TO_SHEET_ANSWER"],
-          payload: {
-            oldIndex: oldIndex,
-            newIndex: newIndex
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _context4.prev = 0;
+              _context4.next = 3;
+              return axios.put("".concat(BASE_URL, "/api/sheets/").concat(sheetId, "/answers/index"), {
+                old_index: oldIndex,
+                new_index: newIndex
+              });
+
+            case 3:
+              _ref8 = _context4.sent;
+              data = _ref8.data;
+
+              if (data.updated) {
+                dispatch({
+                  type: _reducers_sheetAnswersReducer__WEBPACK_IMPORTED_MODULE_3__["UPDATE_INDEX_TO_SHEET_ANSWER"],
+                  payload: {
+                    oldIndex: oldIndex,
+                    newIndex: newIndex
+                  }
+                });
+              }
+
+              _context4.next = 10;
+              break;
+
+            case 8:
+              _context4.prev = 8;
+              _context4.t0 = _context4["catch"](0);
+
+            case 10:
+            case "end":
+              return _context4.stop();
           }
-        });
-      }
-    });
-  };
+        }
+      }, _callee4, null, [[0, 8]]);
+    }));
+
+    return function updateIndexToSheetAnswer(_x5, _x6, _x7) {
+      return _ref7.apply(this, arguments);
+    };
+  }();
 
   return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_contexts_SheetAnswersContext__WEBPACK_IMPORTED_MODULE_2__["default"].Provider, {
     value: {
       sheetAnswers: sheetAnswers,
+      setSheetAnswersSuccess: setSheetAnswersSuccess,
       fetchSheetAnswersBySheetIdFromApi: fetchSheetAnswersBySheetIdFromApi,
       addSheetAnswerToSheet: addSheetAnswerToSheet,
-      updateSheetAnswer: updateSheetAnswer,
+      updateAllSheetAnswers: updateAllSheetAnswers,
+      updateAttributesToSheetAnswer: updateAttributesToSheetAnswer,
       updateIndexToSheetAnswer: updateIndexToSheetAnswer
     }
   }, children);
